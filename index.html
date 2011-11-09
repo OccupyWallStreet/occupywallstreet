@@ -17,9 +17,9 @@
 
 	<!-- CSS
   ================================================== -->
-	<link rel="stylesheet" href="owsnet_files/base.css">
-	<link rel="stylesheet" href="owsnet_files/skeleton.css">
-	<link rel="stylesheet" href="owsnet_files/layout.css">
+	<link rel="stylesheet" href="css/base.css">
+	<link rel="stylesheet" href="css/skeleton.css">
+	<link rel="stylesheet" href="css/layout.css">
 
 	<!-- Favicons
 	================================================== -->
@@ -54,11 +54,14 @@
 		div.headspace {
 			height: 392px;
 		}
+		
+		#head {
+		margin-left:-40px;
+		margin-right:-40px;
+		}
 
 		img.headerimg {
-			position: absolute;
-			left: 0px;
-			top: 0px;
+			width:100%;
 		}
 
 		.container {
@@ -110,8 +113,7 @@
 	<!-- Delete everything in this .container and get started on your own site! -->
 
 	<div class="container">
-		<img class="headerimg" src="./owsnet_files/ows_splash.jpg">
-            <div class="headspace"></div>
+		<div id="head"><img class="headerimg" src="img/ows_splash.jpg"></div>
 		
 		<div class="eight columns">
 			<h3>What is this?</h3>
@@ -131,9 +133,6 @@
 			<a href="http://www.nycga.net" class="button majorBtn">Get Involved</a>
 			<p>We want the full 99% to join us. Sustaining this occupation takes a lot of hard work which we divide among the many Working Groups we have formed. Follow this link to the NYCGA.net website - a social network for social revolution which is helping us all collaborate and communicate. You will find a full listing of events, archived meeting minutes, a map of Liberty Plaza, and much more. Come join some groups to become a part of the conversation and the occupation.</p>
 		</div>
-		<!-- <div class="sixteen columns">
-			<p><strong>How can I help?</strong> Above you'll find links to donate and to get involved. Your donations are greatly appreciated and will go directly to the GA's general fund for sustaining the occupation.  All money will be allocated via consensus in either the Spokes Council or the General Assembly, depending on the type of proposal. Past purchases have included medical supplies, clothing, food, technology for our media group, and much more. All financial data is open and transparent and finical releases from the finance working group are published HERE. Beyond donations, your help is also very valuable to us. We want everyone in the 99% to join us. Sustaining this occupation takes a lot of hard work and we are taking on this work in various Working Groups we have formed. The 'Get Involved' link below will bring you to the NYCGA.net website where you can join groups to become part of the conversation and part of the occupation.</p>
-		</div> -->
 		<hr>
 		<div class="sixteen columns">
 			<h3>Official Documents</h3>
@@ -229,8 +228,8 @@
 
 	<!-- JS
 	================================================== -->
-	<script src="./owsnet_files/jquery-1.6.4.min.js"></script>
-	<script src="./owsnet_files/tabs.js"></script>
+	<script src="js/jquery-1.6.4.min.js"></script>
+	<script src="js/tabs.js"></script>
 
 <!-- End Document
 ================================================== -->
