@@ -26,6 +26,8 @@
 	<link rel="shortcut icon" href="http://www.nycga.net/favicon.ico">
 	
 	<style>
+	
+		a:link { color:#45a; }
 		
 		h3 {
 			font-weight: bold;
@@ -37,6 +39,8 @@
 			font-size: 18px;
 			font-weight: bold;
 		}
+		
+		p { color:#888; }
 
 		p.officialdocs {
 			font-style: italic;
@@ -63,13 +67,29 @@
 		img.headerimg {
 			width:100%;
 		}
+		
+		#ribbon {
+		position:absolute;
+		top:0;
+		left:-20px;
+		}
 
 		.container {
+		background:white url(img/ows_splash.jpg) no-repeat scroll left 50px;
 		-moz-box-shadow:0 0 15px #AAA;
 		-webkit-box-shadow:0 0 15px #AAA;
 		-o-box-shadow:0 0 15px #AAA;
 		box-shadow:0 0 15px #AAA;
-		padding: 0px 40px 30px 40px;
+		padding: 350px 40px 30px 40px;
+		position:relative;
+		}
+		
+		#hero {
+		background-color:#666;
+		background-color:rgba(0,0,0,.8);
+		color:#AAA;
+		margin:0 -40px 40px;
+		padding:40px 40px 20px;
 		}
 	
 		a.majorBtn {
@@ -84,8 +104,8 @@
 		
 		color:white;
 		display:block;
-		font-size:18px;
-		padding:12px;
+		font-size:25px;
+		padding:40px 12px;
 		text-align:center;
 		text-transform:uppercase;
 		text-shadow:1px 1px 1px #aaa;
@@ -113,24 +133,44 @@
 	<!-- Delete everything in this .container and get started on your own site! -->
 
 	<div class="container">
-		<div id="head"><img class="headerimg" src="img/ows_splash.jpg"></div>
+		<div id="ribbon"><img src="img/ows_ribbon.png" /></div>
+		<div id="head"><img class="headerimg" src="img/ows_splash.png"></div>
 		
-		<div class="eight columns">
-			<h3>What is this?</h3>
-			<p>On September 17, 2011 a small group of dedicated people sat down in Zuccotti Park just blocks from Wall Street in Lower Manhattan. They haven't left.</p>
-			<p>This web site will be the official voice of those on the ground at the since-renamed Liberty Plaza. We have exciting plans in store for the future of the site and we hope you'll come back soon to see it evolve.</p>
+		<div id="hero" class="clearfix">
+			<div class="eight columns">
+				<p>On September 17, 2011 a small group of dedicated people sat down in Zuccotti Park just blocks from Wall Street in Lower Manhattan. They haven't left.</p>
+			</div>
+			<div class="eight columns">
+				<p>This web site will be the official voice of those on the ground at the since-renamed Liberty Plaza. We have exciting plans in store for the future of the site and we hope you'll come back soon to see it evolve.</p>
+			</div>
 		</div>
-		<div class="eight columns">
+		
+		<div class="sixteen columns">
 			<h3>How can this be official?</h3>
-			<p>This web site will focus on the occupation of Liberty Plaza and came into being through the consensus process that we use to make decisions. It will be run openly and transparently by the Internet Working Group on behalf of the New York City General Assembly and the individuals who engage in direct and transparent participatory democracy.  It is the only outward-facing website that is accountable to the General Assembly and is therefore your only official online source for the latest on #OccupyWallStreet in Liberty Plaza.</p>
 		</div>
-		<hr>
 		<div class="eight columns">
+			<p>This web site will focus on the occupation of Liberty Plaza and came into being through the consensus process that we use to make decisions. It will be run openly and transparently by the Internet Working Group on behalf of the New York City General Assembly and the individuals who engage in direct and transparent participatory democracy.
+		</div>
+		<div class="eight columns">
+			<p>It is the only outward-facing website that is accountable to the General Assembly and is therefore your only official online source for the latest on #OccupyWallStreet in Liberty Plaza.</p>
+		</div>
+		
+		<hr />
+		
+		<div class="four columns">
 			<a href="https://www.wepay.com/xo71ir" class="button majorBtn">Donate</a>
+		</div>
+		<div class="twelve columns">
 			<p>Your donations are greatly appreciated and will go directly to the GA's general fund for sustaining the occupation.  All money will be allocated via consensus in either the Spokes Council or the General Assembly, depending on the type of proposal. Past purchases have included medical supplies, clothing, food, technology for our media group, and much more. All financial data is open and transparent and financial releases from the Finance Working Group are <a href="http://finance.nycga.net">published online</a>.</p>
 		</div>
-		<div class="eight columns">
+		
+		<br class="clear" />
+		<br />
+		
+		<div class="four columns">
 			<a href="http://www.nycga.net" class="button majorBtn">Get Involved</a>
+		</div>
+		<div class="twelve columns">
 			<p>We want the full 99% to join us. Sustaining this occupation takes a lot of hard work which we divide among the many Working Groups we have formed. Follow this link to the NYCGA.net website - a social network for social revolution which is helping us all collaborate and communicate. You will find a full listing of events, archived meeting minutes, a map of Liberty Plaza, and much more. Come join some groups to become a part of the conversation and the occupation.</p>
 		</div>
 		<hr>
