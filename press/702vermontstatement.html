@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+	<!-- Basic Page Needs
+  ================================================== -->
+	<meta charset="utf-8">
+	<title>OccupyWallStreet.net | Coming soon</title>
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+	<!-- Mobile Specific Metas
+  ================================================== -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<!-- CSS
+  ================================================== -->
+	<link rel="stylesheet" href="../css/base.css">
+	<link rel="stylesheet" href="../css/skeleton.css">
+	<link rel="stylesheet" href="../css/layout.css">
+
+	<!-- Favicons
+	================================================== -->
+	<link rel="shortcut icon" href="http://www.nycga.net/favicon.ico">
+	
+	<style>
+	
+		a:link { color:#45a; }
+		
+		h1 { font-family:OSPDIN,sans-serif; }
+		
+		h3 {
+			font-weight: bold;
+			text-transform: uppercase;
+			font-size: 18px;
+		}
+
+		h2 {
+			font-size: 18px;
+			font-weight: bold;
+		}
+		
+		p { color:#444; }
+		
+		a.homeBtn {
+		background: #ffcc00; /* Old browsers */
+		background: -moz-linear-gradient(top,  #ffcc00 0%, #d6ab00 100%); /* FF3.6+ */
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffcc00), color-stop(100%,#d6ab00)); /* Chrome,Safari4+ */
+		background: -webkit-linear-gradient(top,  #ffcc00 0%,#d6ab00 100%); /* Chrome10+,Safari5.1+ */
+		background: -o-linear-gradient(top,  #ffcc00 0%,#d6ab00 100%); /* Opera 11.10+ */
+		background: -ms-linear-gradient(top,  #ffcc00 0%,#d6ab00 100%); /* IE10+ */
+		background: linear-gradient(top,  #ffcc00 0%,#d6ab00 100%); /* W3C */
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffcc00', endColorstr='#d6ab00',GradientType=0 ); /* IE6-9 */
+		
+		text-decoration: none;
+		background-color: #FC0;
+		padding: 5px 15px 5px 5px;
+		border: 1px solid #DA0;
+		height: 19px;
+		float: right;
+		margin-top: 12px;
+		-moz-border-radius: 5px 25px 25px 5px;
+		-webkit-border-radius: 5px 25px 25px 5px;
+		-o-border-radius: 5px 25px 25px 5px;
+		border-radius: 5px 25px 25px 5px;
+		}
+		
+		a:hover.homeBtn {
+		background: #7d7e7d; /* Old browsers */
+		background: -moz-linear-gradient(top,  #7d7e7d 0%, #0e0e0e 100%); /* FF3.6+ */
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#7d7e7d), color-stop(100%,#0e0e0e)); /* Chrome,Safari4+ */
+		background: -webkit-linear-gradient(top,  #7d7e7d 0%,#0e0e0e 100%); /* Chrome10+,Safari5.1+ */
+		background: -o-linear-gradient(top,  #7d7e7d 0%,#0e0e0e 100%); /* Opera 11.10+ */
+		background: -ms-linear-gradient(top,  #7d7e7d 0%,#0e0e0e 100%); /* IE10+ */
+		background: linear-gradient(top,  #7d7e7d 0%,#0e0e0e 100%); /* W3C */
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7d7e7d', endColorstr='#0e0e0e',GradientType=0 ); /* IE6-9 */
+		
+		color:white;
+		}
+
+		.container {
+		background:white;
+		padding: 30px 40px 30px 40px;
+		position:relative;
+		}
+		
+		.shadow {
+		-moz-box-shadow:0 0 15px #AAA;
+		-webkit-box-shadow:0 0 15px #AAA;
+		-o-box-shadow:0 0 15px #AAA;
+		box-shadow:0 0 15px #AAA;
+		}
+	
+		a.majorBtn {
+		background: #ffcc00; /* Old browsers */
+		background: -moz-linear-gradient(top,  #ffcc00 0%, #d6ab00 100%); /* FF3.6+ */
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffcc00), color-stop(100%,#d6ab00)); /* Chrome,Safari4+ */
+		background: -webkit-linear-gradient(top,  #ffcc00 0%,#d6ab00 100%); /* Chrome10+,Safari5.1+ */
+		background: -o-linear-gradient(top,  #ffcc00 0%,#d6ab00 100%); /* Opera 11.10+ */
+		background: -ms-linear-gradient(top,  #ffcc00 0%,#d6ab00 100%); /* IE10+ */
+		background: linear-gradient(top,  #ffcc00 0%,#d6ab00 100%); /* W3C */
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffcc00', endColorstr='#d6ab00',GradientType=0 ); /* IE6-9 */
+		
+		color:white;
+		display:block;
+		font-size:25px;
+		padding:40px 12px;
+		text-align:center;
+		text-transform:uppercase;
+		text-shadow:1px 1px 1px #aaa;
+		}
+		
+		a.majorBtn:hover {
+		background: #7d7e7d; /* Old browsers */
+		background: -moz-linear-gradient(top,  #7d7e7d 0%, #0e0e0e 100%); /* FF3.6+ */
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#7d7e7d), color-stop(100%,#0e0e0e)); /* Chrome,Safari4+ */
+		background: -webkit-linear-gradient(top,  #7d7e7d 0%,#0e0e0e 100%); /* Chrome10+,Safari5.1+ */
+		background: -o-linear-gradient(top,  #7d7e7d 0%,#0e0e0e 100%); /* Opera 11.10+ */
+		background: -ms-linear-gradient(top,  #7d7e7d 0%,#0e0e0e 100%); /* IE10+ */
+		background: linear-gradient(top,  #7d7e7d 0%,#0e0e0e 100%); /* W3C */
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7d7e7d', endColorstr='#0e0e0e',GradientType=0 ); /* IE6-9 */
+		
+		color:white;
+		}
+	</style>
+	
+	<script type="text/javascript">
+
+	  var _gaq = _gaq || [];
+	  _gaq.push(['_setAccount', 'UA-25680260-2']);
+	  _gaq.push(['_trackPageview']);
+
+	  (function() {
+		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	  })();
+
+	</script>
+
+</head>
+<body>
+	<!-- Primary Page Layout
+	================================================== -->
+
+	<!-- Delete everything in this .container and get started on your own site! -->
+
+	<div id="header" class="container">
+		<a class="homeBtn" href="http://www.occupywallstreet.net">Home</a>
+		<h1>#OCCUPYWALLSTREET</h1>
+	</div>
+	<div id="mainBody" class="container shadow">
+		<h6>STATEMENT FROM OCCUPY WALL STREET ORGANIZERS OF DEC. 6TH #OCCUPYHOMES ACTION IN EAST NEW YORK</h6>
+<br />
+<p>Over the past two months across the country, Occupy Wall Street (OWS) participants have been partnering with families and community organizations to stop foreclosures and evictions, and to help homeless families move into vacant foreclosed properties. As part of this effort, on December 6th, members of OWS supported Alfredo Carrasquillo in his efforts to occupy a home at 702 Vermont St. in East New York, and to repair it to a condition that would be suitable for his family to move in.</p>
+
+<p>The property is under foreclosure by Bank of America and had been abandoned, sitting vacant for more than three years. Neighbors complained of repeated break-ins, litter, and criminal activity related to the property during that time.</p>
+
+<p>Efforts were made to find the owner, Wise Ahadzi, in advance of the December 6th occupation, to no avail. From day one, Alfredo and members of Occupy Wall Street and local community organizations said that they would support the owner if he wants to fight for his home and would support him in fighting the banks to relieve his debt. As Occupy Wall Street stated in a December 6th press release: We want Bank of America to make this house available for a not for profit (a community land trust that will ensure long-term affordability) and wipe away all debt that the current owner has if he wants to come back.</p>
+
+<p>On the day after the December 6th occupation of 702 Vermont, Mr. Ahadzi showed up at the property. Since then, Alfredo Carrasquillo, members of Occupy Wall Street, and local community organizations have met with Mr. Ahadzi and his lawyer a number of times. These meetings were positive, and Mr. Ahadzi and his lawyer were supportive of collaborative efforts to demand Bank of America relieve his debt. At no point in this process has Mr. Ahadzi ever requested that Mr. Carrasquillo or the members of Occupy Wall Street assisting with renovations leave the property.</p>
+
+<p>According to statements Mr. Ahadzi made to the New York Post yesterday, he is apparently now interested in reclaiming his home. Given that, Alfredo Carrasquillo and members of Occupy Wall Street will support Mr. Ahadzis efforts, so that neither his family or Alfredos is homeless, and so that the house at 702 Vermont does not sit vacant.</p>
+
+<p>East New York has one of the highest foreclosure rates in the country, nearly three times greater than that of Brooklyn, and nearly five times greater than that of New York State. This applies to underwater mortgage rates as well.</p>
+
+<p>East New York has been decimated by criminal bank foreclosures using robo-signings as recently as October, forcing
+families to abandon their homes and communities. The neighborhood is burdened by numerous boarded-up homes left vacant by the banks after families were unable to keep up with extortionate mortgages on properties that are now underwater.</p>
+
+<p>Members of OWS will continue to work with community members in East New York, throughout the city, and across the country to support access to housing for everyone. And we will continue to fight the big banks that, after being bailed out by taxpayers, went on to foreclose on millions of American families.</p>
+	</div><!-- container -->
+	<br>
+	<br>
+	<div id="footer">
+	<br>
+		<center><a href="http://www.occupywallstreet.net">Home</a><br /><small>This site is run by the Tech Operation Group of the NYC General Assembly - contact us: <a href="mailto:tech@nycga.net">tech@nycga.net</a></small></center>
+	<br>
+	</div><!-- container -->
+
+	<!-- JS
+	================================================== -->
+	<script src="js/jquery-1.6.4.min.js"></script>
+	<script src="js/tabs.js"></script>
+
+<!-- End Document
+================================================== -->
+
+</body></html>
