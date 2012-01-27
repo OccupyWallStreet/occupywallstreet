@@ -1,5 +1,5 @@
-name = 'occupy'
-description = ''
+name = 'Occupy'
+description = 'Official subtheme of the Occupy Wall St. movement'
 core = '7.x'
 engine = 'phptemplate'
 screenshot = 'nyannyanpercent.jpg'
