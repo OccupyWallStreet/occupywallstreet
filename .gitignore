@@ -3,6 +3,7 @@
 sites/*/files
 sites/*/files/*
 files/*
+sites/default/settings.php
 
 # Packages #
 ############
