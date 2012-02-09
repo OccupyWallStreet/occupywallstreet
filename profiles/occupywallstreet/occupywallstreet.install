@@ -1,4 +1,6 @@
 <?php
+// TODO: make this a "real" installation profile
+// v1 will build from the Standard profile
 
 /**
  * Implements hook_install().

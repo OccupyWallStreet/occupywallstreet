@@ -1,5 +1,5 @@
 name = OWS.net profile
-description = Site tailored to the OWS.net profile.
+description = Site tailored to the OWS.net profile (INCOMPLETE, use Standard for now).
 core = 7.x
 dependencies[] = block
 dependencies[] = dblog
