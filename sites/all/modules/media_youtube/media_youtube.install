@@ -100,3 +100,10 @@ function media_youtube_update_7011() {
   return array();
 }
 
+/**
+ * Rebuild theme and formatters.
+ */
+function media_youtube_update_7012() {
+  return array();
+}
+
