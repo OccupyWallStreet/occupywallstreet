@@ -827,7 +827,7 @@ function fonts_com_enable_from_active_project() {
 
     } // foreach
 
-    $selectors = fonts_get_selectors_in_project($project_id);
+    $selectors = fonts_com_get_selectors_in_project($project_id);
     
     foreach ($selectors as $selector) {
       $selectors_by_font_id[$selector->SelectorFontID] = $selector->SelectorTag;
@@ -1360,7 +1360,7 @@ function fonts_com_filter_choices($current_filters = FALSE) {
     
       module_load_include('inc', 'fonts_com', 'api');
 
-      $options = fonts_get_all_filter_choices(array('wfsfreeorpaid' => '-1'));
+      $options = fonts_com_get_all_filter_choices(array('wfsfreeorpaid' => '-1'));
     
       $choices['filters'] = $options + array(
         'Designer' => array(),
@@ -1407,7 +1407,7 @@ function fonts_com_filter_choices($current_filters = FALSE) {
 
       module_load_include('inc', 'fonts_com', 'api');
 
-      $options = fonts_get_all_filter_choices($filters);
+      $options = fonts_com_get_all_filter_choices($filters);
 
       return $options + array(
         'Designer' => array(),

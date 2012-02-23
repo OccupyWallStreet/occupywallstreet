@@ -18,18 +18,23 @@ function fontyourface_permission() {
  * Implements hook_init().
  */
 function fontyourface_init() {
+
   fontyourface_add_theme_info_fonts();
-}
+
+} // fontyourface_init
 
 /**
  * Load a font from the database using its URL
  */
 function fontyourface_load_font_by_url($url) {
+
   if ($font = db_query('SELECT * FROM {fontyourface_font} WHERE url LIKE :url', array(':url' => $url))->fetchObject()) {
     return $font;
-  }
+  } // if
+
   return array();
-}
+
+} // fontyourface_load_font_by_url
 
 /**
  * Load and display fonts that have been added through THEMENAME.info.
@@ -56,14 +61,8 @@ function fontyourface_add_theme_info_fonts() {
 
             if (isset($font->enabled) && !$font->enabled) {
 
-              // Enable the font and set the default CSS selector to <none>
-              if (fontyourface_enable_font($font)) {
-
-                $font->css_selector = '<none>';
-                drupal_write_record('fontyourface_font', $font, 'fid');
-                drupal_set_message(t('Font %font has been enabled', array('%font' => $font->name)));
-
-              } // if
+              $font->css_selector = '<none>';                
+              fontyourface_font_registry($font);
 
             } // if
             elseif (empty($font)) {
@@ -166,7 +165,7 @@ function fontyourface_preprocess_page(&$vars) {
 
       $font_css = fontyourface_font_css($font);
 
-      if ($font_css != '' && $font->css_selector != '') {
+      if ($font_css != '' && $font->css_selector != '' && $font->css_selector != '<none>') {
         $css .= $font->css_selector . ' { ' . $font_css . ' }' . "\n";
       } // if
 
@@ -334,12 +333,6 @@ function fontyourface_enable_font(&$font) {
  * Disables a single font.
  */
 function fontyourface_disable_font(&$font) {
-
-  $theme_declarations = fontyourface_parse_theme_info_file();
-
-  if (isset($theme_declarations[$font->provider])) {
-    drupal_set_message(t('It seems that you have enabled some fonts in your the .info file of your theme. Those fonts are (re-)enabled by default. If you want to disable these fonts, you have to remove them out of your .info file first.'));
-  }
 
   db_update('fontyourface_font')
     ->fields(array('enabled' => 0))
@@ -659,3 +652,35 @@ function fontyourface_parse_theme_info_file() {
   return $font_declarations;
 
 } // fontyourface_parse_theme_info_file
+
+/**
+ * Implements hook_ajax_render_alter().
+ * Adds CSS for fonts loaded via AJAX.
+ */
+function fontyourface_ajax_render_alter(&$commands) {
+
+  // Clear out any non-font CSS so it doesn't get re-added.
+
+  drupal_static_reset('drupal_add_css');
+
+  // Get all the CSS that would otherwise be added in preprocess_page functions.
+
+  $vars = array();
+
+  fontyourface_preprocess_page($vars);
+
+  foreach (module_implements('fontyourface_info') as $provider) {
+
+    $function = $provider . '_preprocess_page';
+
+    if (function_exists($function)) {
+      $function($vars);
+    } // if
+
+  } // foreach
+
+  // Add AJAX command to prepend the CSS to <head>.
+
+  $commands[] = ajax_command_prepend('head', $vars['styles']);
+
+} // fontyourface_ajax_render_alter

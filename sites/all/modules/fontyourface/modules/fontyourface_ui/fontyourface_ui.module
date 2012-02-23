@@ -118,7 +118,10 @@ function fontyourface_ui_views_api() {
  */
 function fontyourface_ui_views_pre_render(&$view) {
 
-  if ($view->name == 'fontyourface_browse') {
+  if (
+    ($view->name == 'fontyourface_browse') ||
+    ($view->name == 'google_fonts_api_browse')
+  ) {
 
     $view->display_handler->handlers['header']['area']->options['format'] = 'full_html';
     $view->display_handler->handlers['header']['area']->options['content'] = '<div><p>' . fontyourface_ui_enabled_count() . '</p></div>' . fontyourface_ui_browse_tabs();
@@ -717,10 +720,11 @@ function fontyourface_ui_apply_by_font_form($form, &$form_state) {
       '#suffix' => '</tr>',
     );
 
+    $editname = l(t($font->name), 'admin/appearance/fontyourface/edit/' . $font->fid, array('query' => array('destination' => 'admin/appearance/fontyourface'), 'attributes' => array('class' => 'edit-link')));
     $form['table']['row_' . $font->fid]['name'] = array(
-      '#markup' => '<td>' . $font->name . '</td>',
+      '#markup' => '<td>' . $editname . '</td>',
     );
-    
+
     $form['table']['row_' . $font->fid]['provider'] = array(
       '#markup' => '<td>' . $font->provider . '</td>',
     );
@@ -728,17 +732,19 @@ function fontyourface_ui_apply_by_font_form($form, &$form_state) {
     $form['table']['row_' . $font->fid]['css_selector[' . $font->fid . ']'] = array(
       '#prefix' => '<td class="css-selector" data-font-family="' . check_plain($font->css_family) . '">',
       '#type' => 'textfield',
+      '#maxlength' => 1024,
       '#size' => 50,
       '#default_value' => $font->css_selector,
       '#suffix' => '</td>',
     );
-    
+
+    $actionsedit = l(t('Edit'), 'admin/appearance/fontyourface/edit/' . $font->fid, array('query' => array('destination' => 'admin/appearance/fontyourface'), 'attributes' => array('class' => 'edit-link')));
     $actions = l(t('Disable'), 'admin/appearance/fontyourface/disable/' . $font->fid, array('query' => array('destination' => 'admin/appearance/fontyourface'), 'attributes' => array('class' => 'disable-link')));
     if($font->provider == 'local_fonts' && !$font->enabled) {
       $actions = l(t('Delete'), 'admin/appearance/fontyourface/local_fonts/delete/' . $font->fid, array('query' => array('destination' => 'admin/appearance/fontyourface'), 'attributes' => array('class' => 'disable-link')));
     }
     $form['table']['row_' . $font->fid]['disable'] = array(
-      '#markup' => '<td>' . $actions . '</td>',
+      '#markup' => '<td>' . $actionsedit . " - " . $actions . '</td>',
     );
 
   } // foreach
@@ -989,7 +995,16 @@ function fontyourface_ui_theme_instructions() {
 
     $provider_base_path = fontyourface_provider_info($font, 'base_path');
     $path = str_replace($provider_base_path, '', $font->url);
-    $info_declarations[] = 'fonts[' . $font->provider . '][] = "' . $path . '"';
+
+    if ($font->provider == 'local_fonts') {
+
+      $info_declarations[] = '; ' . t("Local font '@font' can not be included in a theme.info file,", array('@font' => $font->name));
+      $info_declarations[] = '; ' . t('because it can not be loaded via URL.');
+
+    } // if
+    else {
+      $info_declarations[] = 'fonts[' . $font->provider . '][] = "' . $path . '"';
+    } // else
 
   } // foreach
 
@@ -1122,7 +1137,7 @@ function fontyourface_ui_admin_edit_form($form, &$form_state, $fid) {
       '#resizable' => FALSE,
       '#rows' => 3,
       '#default_value' => $font->css_selector,
-      '#description' => t('Use commas to separate multiple selectors, just like you would in CSS. Leave blank to handle application of the font in your theme.'),
+      '#description' => t('Use commas to separate multiple selectors, just like you would in CSS.'),
     ),
   );
 
