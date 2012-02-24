@@ -62,18 +62,6 @@
 
 /* #Typography
 ================================================== */
-
-	@font-face {
-		font-family: 'OSPDIN';
-		src: url('../fonts/OSP-DIN-webfont.eot');
-		src: url('../fonts/OSP-DIN-webfont.eot?#iefix') format('embedded-opentype'),
-			url('../fonts/OSP-DIN-webfont.woff') format('woff'),
-			url('../fonts/OSP-DIN-webfont.ttf') format('truetype'),
-			url('../fonts/OSP-DIN-webfont.svg#OSPDIN') format('svg');
-		font-weight: normal;
-		font-style: normal;
-	}
-
 	h1, h2, h3, h4, h5, h6 {
 		color: #181818;
 		font-family: "Georgia", "Times New Roman", Helvetica, Arial, sans-serif;

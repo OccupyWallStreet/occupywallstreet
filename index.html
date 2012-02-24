@@ -27,17 +27,56 @@
 	
 	<style>
 	
+	@font-face {
+	font-family: 'OSPDIN';
+	src: url('fonts/OSP-DIN-webfont.eot');
+	src: url('fonts/OSP-DIN-webfont.eot?#iefix') format('embedded-opentype'),
+		url('fonts/OSP-DIN-webfont.woff') format('woff'),
+		url('fonts/OSP-DIN-webfont.ttf') format('truetype'),
+		url('fonts/OSP-DIN-webfont.svg#OSPDIN') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+	
 		a:link { color:#45a; }
 		
 		h3 {
 			font-weight: bold;
 			text-transform: uppercase;
-			font-size: 18px;
+		}
+
+		h2.header{
+			font-family: 'OSPDIN';
+			font-size: 24px;
+			letter-spacing: 2px;
+			text-transform: uppercase;
+			line-height: 27px;
+			color:#fff;
+			text-align:center;
 		}
 
 		h2 {
 			font-size: 18px;
 			font-weight: bold;
+		}
+		
+		.explanation{ 
+			margin: 0 auto;
+			width: 700px;
+			text-align:center;
+			color:#fff !important
+		}
+		
+		a.contributeLink{
+			font-size: 33px;
+			line-height: 52px;
+			color:#fc0 !important;
+			text-decoration: none;
+		}
+		
+		a.contributeLink:hover{
+			color:#fff !important;
+			text-decoration: underline: 
 		}
 		
 		p { color:#888; }
@@ -150,11 +189,14 @@
 		<div id="ribbon"><img src="img/ows_ribbon.png" /></div>
 		
 		<div id="hero" class="clearfix">
-			<div class="eight columns">
-				<p>On September 17, 2011 a small group of dedicated people sat down in Zuccotti Park just blocks from Wall Street in Lower Manhattan. They haven't left.</p>
+			<div class="sixteen columns">
+				<h2 class="header">Occupywallstreet.net is coming soon.<br />
+				We intend to create a public face to Occupy Wall Street<br />
+				by sharing stories that are current, topical and informed.<br />
+				<a class="contributeLink" href="mailto:submissions@occupywallstreet.net">We invite you to contribute content &raquo;</a></h2>
 			</div>
-			<div class="eight columns">
-				<p>This web site will be the  voice of those on the ground at the since-renamed Liberty Plaza. We have exciting plans in store for the future of the site and we hope you'll come back soon to see it evolve.</p>
+			<div>
+				<p class="explanation">This web site will be the  voice of those on the ground at the since-renamed Liberty Plaza.<br/>We have exciting plans in store for the future of the site and we hope you'll come back soon to see it evolve.</p>
 			</div>
 		</div>
 		
@@ -288,7 +330,7 @@
 	<br>
 	<div id="footer">
 	<br>
-		<center><small>This site is run by the <a href="http://nycga.net/groups/tech">Technology Operations Group</a> of #OccupyWallStreet - contact us: <a href="mailto:tech@nycga.net">tech@nycga.net</a></small></center>
+		<center><small>This site is run by the <a href="http://nycga.net/groups/internet">Technology Operations Group</a> of #OccupyWallStreet - contact us: <a href="mailto:tech@nycga.net">tech@nycga.net</a></small></center>
 		<center><small>You can't copyright a movement.</small></center>
 	<br>
 	</div><!-- container -->
