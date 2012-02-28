@@ -1,54 +1,47 @@
 /* This file will hold the main styles for your website. */
 
-/*------------------------TYPOGRAPHY--------------------------*/
-
+/*--------------------------------------------TYPOGRAPHY-------------------------------------------*/
 p, div {
     font-family: 'PTSansRegular';
 }
-
-/*--------------------------HEADER----------------------------*/
-/*-------------------------BRANDING---------------------------*/
-
-#section-header {
-    background: url("/sites/all/themes/files/header.png") no-repeat scroll center top transparent;
+/*----------------------------------------------HEADER---------------------------------------------*/
+/*---------------------------------------------BRANDING--------------------------------------------*/
+tr:hover td, tr.even:hover td.active, tr.odd:hover td.active {
+    background: none repeat scroll 0 0 #FFFEEE;
 }
-
+#section-header {
+    background: url("/sites/all/themes/files/header_hashtag.jpg") no-repeat scroll center top transparent;
+}
 h1.site-name, h2.site-name {
     font-size: 4.7em;
     font-weight: normal;
     letter-spacing: 1.29px;
 }
-
-.site-name a,
-.site-name a:active,
-.site-name a:link,
-.site-name a:hover {
+.site-name a, .site-name a:active, .site-name a:link, .site-name a:hover {
     color: #FFFFFF;
     text-decoration: none;
 }
-
-.site-slogan,
-.block-menu {
+.site-slogan, .block-menu {
     color: #FECD48;
     font-size: 1.55em;
     font-weight: normal;
     letter-spacing: 1px;
 }
-
-/*--------------------------Menu---------------------------------*/
-
-#block-system-main-menu li.leaf {
+/*-------------------------------------------------MAIN MENU-----------------------------------------*/
+ul li.leaf {
+    list-style-image: none;
+    list-style-type: none;
+}
+#block-system-main-menu li.leaf a:active {
     list-style-image: url("/sites/all/themes/files/active-menu-icon.png");
     list-style-type: square;
 }
-
 #block-system-main-menu ul.menu {
     border: medium none;
     list-style: none outside none;
     padding: 50px 0 0 50px;
     text-align: left;
 }
-
 #block-system-main-menu li a.active {
     color: #FECD48;
     font-weight: normal;
@@ -56,15 +49,179 @@ h1.site-name, h2.site-name {
     text-decoration: none;
     text-transform: uppercase;
 }
-
+#block-system-main-menu li a, #block-system-main-menu li a:hover, #block-system-main-menu li a:link {
+    color: #FECD48;
+    font-family: 'LeagueGothicRegular';
+    font-weight: normal;
+    letter-spacing: 3px;
+    text-decoration: none;
+    text-transform: uppercase;
+}
 .block-2 {
     font-size: 1.17em;
-    width: 100%;
+    line-height: 1.32em;
     margin-top: 15px;
+    padding: 19px 0;
+    width: 100%;
 }
-
-/*-----------------------Slideshow-----------------------------*/
-
+#block-block-3, #block-block-3--2 {
+    float: left;
+    margin: 0;
+    padding: 20px;
+    width: 100%;
+}
+/*-----------------------------------------------ANNOUNCEMENTS----------------------------------*/
+#block-views-ows-announcements-block {
+    float: left;
+    margin: 0;
+    padding: 65px 0 0 20px;
+    width: 100%;
+}
+.view-ows-announcements {
+    border-top: 1px dashed;
+    color: darkRed;
+    float: left;
+    font-family: 'LeagueGothicRegular';
+    font-size: 1em;
+    font-weight: normal;
+    letter-spacing: -1px;
+    margin: 0;
+    padding: 5px 0 20px 40px;
+    width: 100%;
+}
+#block-views-ows-announcements-block .views-row-first {
+    border-right: 1px solid;
+    float: left;
+    margin: 0;
+    padding: 16px 25px 15px 0;
+    width: 40%;
+}
+#block-views-ows-announcements-block .views-row-last {
+    float: left;
+    margin: 0;
+    padding: 15px 0 0 35px;
+    width: 40%;
+}
+/*-----------------------------------FEATURED SECTION--------------------------------------*/
+/*---------------------------------------Slideshow-----------------------------------------*/
 .quicktabs-loaded {
-	    background: url("/sites/all/themes/files/featured.png") no-repeat scroll center bottom transparent;
+    background: url("/sites/all/themes/files/featured.png") no-repeat scroll center bottom transparent;
+}
+ul.quicktabs-tabs {
+    margin: 0;
+    width: 100%;
+}
+ul.quicktabs-tabs li {
+    display: inline;
+    font-size: 30px;
+    list-style-type: none;
+    margin: 0;
+    padding: 0 30px 0 0;
+    white-space: nowrap;
+    width: auto;
+}
+#quicktabs-tabpage-feeds-0 .item-list a {
+    font-family: 'PTSansRegular';
+    font-size: 15px;
+}
+/*----------------------------------------CONTENT--------------------------------------*/
+#page-title {
+    display: none;
+}
+.stories-block-row {
+    background-color: #FFFFFF;
+    float: left;
+    width: 25%;
+}
+.stories-block-date {
+    background-color: #FFCD05;
+    color: #000000;
+    margin: 0;
+    padding: 10px 10px 0;
+    width: 85.5%;
+}
+.stories-block-date visited {
+    background-color: #666766;
+    color: #FFFFFF;
+    padding: 10px 10px 0;
+    width: 85.5%;
+}
+.stories-block-title {
+    background-color: #FFCD05;
+    color: #000000;
+    margin-bottom: 15px;
+    min-height: 40px;
+    padding: 5px 10px 15px;
+    width: 85.5%;
+}
+.stories-block-title a:visited {
+    background-color: #666766;
+    color: white;
+    margin-bottom: 15px;
+    min-height: 40px;
+    padding: 5px 10px 15px;
+    width: 85.5%;
+}
+.stories-block-title a {
+    color: #000000 !important;
+    font-weight: bold;
+    text-decoration: none;
+}
+.stories-block-title a:visited {
+    color: #FFFFFF;
+    font-weight: bold;
+    text-decoration: none;
+}
+.views-field-field-story-category {
+    border-bottom: 1px solid;
+    color: #000000;
+    float: left;
+    font-family: 'LeagueGothicRegular';
+    font-size: 12px;
+    margin: 0;
+    width: 94%;
+}
+.consensed-field-label {
+    background: url("/sites/all/themes/files/GA-Consensed-Icon.png") no-repeat scroll 0 0 transparent;
+    font-size: 0;
+    margin: 30px 0 0 180px;
+    padding: 30px;
+    position: absolute;
+    z-index: 10000000;
+}
+.views-field-field-image {
+    margin: 37px 0 0;
+    padding: 0;
+    position: relative;
+    z-index: 1;
+}
+.news-block-front {
+    float: left;
+    margin: 0 30px 30px 0;
+    padding: 10px 0 0;
+    width: 30%;
+}
+.news-title-field-label {
+	font-family: 'LeagueGothicRegular';
+}
+/*-------------------------------------------------FOOTER---------------------------------------------*/
+#section-footer {
+    background: url("/sites/all/themes/files/footer.png") no-repeat scroll center top transparent;
+    margin: 0;
+    padding: 0 0 80px;
+    width: 100%;
+}
+.donate {
+    font-family: 'LeagueGothicRegular';
+    font-size: 2.5em;
+    font-weight: normal;
+    letter-spacing: 2px;
+    text-decoration: underline;
+}
+.connect {
+    font-family: 'LeagueGothicRegular';
+    font-size: 2.5em;
+    font-weight: normal;
+    letter-spacing: 2px;
+    text-decoration: underline;
 }
