@@ -58,11 +58,10 @@ ul li.leaf {
     text-transform: uppercase;
 }
 .block-2 {
-    font-size: 1.17em;
-    line-height: 1.32em;
-    margin-top: 15px;
-    padding: 19px 0;
-    width: 100%;
+	font-size: 15px;
+	margin-top: 0;
+	padding: 20px 0;
+	width: 100%;
 }
 #block-block-3, #block-block-3--2 {
     float: left;
@@ -74,81 +73,135 @@ ul li.leaf {
 #block-views-ows-announcements-block {
     float: left;
     margin: 0;
-    padding: 65px 0 0 20px;
-    width: 100%;
+    padding: 55px 0 0 20px;
+    width: 110%;
 }
 .view-ows-announcements {
-    border-top: 1px dashed;
-    color: darkRed;
-    float: left;
-    font-family: 'LeagueGothicRegular';
-    font-size: 1em;
-    font-weight: normal;
-    letter-spacing: -1px;
-    margin: 0;
-    padding: 5px 0 20px 40px;
-    width: 100%;
+	/*border-top: 1px dashed;*/
+	color: darkRed;
+	float: left;
+	font-size: 1.5em;
+	font-weight: normal;
+	letter-spacing: 1px;
+	margin: 0;
+	padding: 0px;
 }
 #block-views-ows-announcements-block .views-row-first {
-    border-right: 1px solid;
-    float: left;
-    margin: 0;
-    padding: 16px 25px 15px 0;
-    width: 40%;
+	border-right: 1px solid;
+	float: left;
+	margin: 0;
+	padding: 0;
+	width: 45%;
+	min-height: 75px;
+	max-height: 75px;
 }
 #block-views-ows-announcements-block .views-row-last {
     float: left;
     margin: 0;
-    padding: 15px 0 0 35px;
-    width: 40%;
+    padding: 0 0 0 25px;
+    width: 45%;
+    min-height: 75px;
+	max-height: 75px;
+}
+.announcements-view {
+	font-family: 'LeagueGothicRegular';
 }
 /*-----------------------------------FEATURED SECTION--------------------------------------*/
 /*---------------------------------------Slideshow-----------------------------------------*/
-.quicktabs-loaded {
+/*.quicktabs-loaded {
     background: url("/sites/all/themes/files/featured.png") no-repeat scroll center bottom transparent;
+}*/
+.quicktabs-tabs a:link, 
+.quicktabs-tabs a:visited {
+	text-decoration: none;
+	padding: 8px;
+} 
+#quicktabs-featured .active {
+	background: url("/sites/all/themes/files/featured.png") no-repeat scroll center bottom transparent;
+	/*position: absolute;
+	z-index: 99999;
+*/}
+.quicktabs-tabs .last {
+	padding: 5px 0 2px 0;
+	background-color: gray;
 }
+/*.quicktabs-tabs .first {
+	padding: 5px 0 2px 0;
+	background-color: gray;
+}
+.quicktabs-tabs .last .active {
+	background: url("/sites/all/themes/files/featured.png") no-repeat scroll center bottom transparent;
+}
+.quicktabs-tabs .first .active {
+	background: url("/sites/all/themes/files/featured.png") no-repeat scroll center bottom transparent;
+}*/
 ul.quicktabs-tabs {
     margin: 0;
     width: 100%;
 }
 ul.quicktabs-tabs li {
     display: inline;
-    font-size: 30px;
+    font-size: 18px;
     list-style-type: none;
     margin: 0;
-    padding: 0 30px 0 0;
-    white-space: nowrap;
-    width: auto;
+    padding: 0 2px 0 0;
 }
 #quicktabs-tabpage-feeds-0 .item-list a {
     font-family: 'PTSansRegular';
     font-size: 15px;
+}
+.views_slideshow_main .views-field-field-image {
+	margin: 0px;
+	padding: 0;
+	position: relative;
+	z-index: 1;
+}
+#quicktabs-tab-featured-0 {
+	padding: 8px;
+	margin: 0
+}
+#quicktabs-container-feeds {
+	border-top: 1px solid;
+	padding: 20px 0 0 0;
+	overflow: scroll;
+	max-height: 360px;
+}
+/*#views_slideshow_cycle_main_nodequeue_1-block {
+	position: relative;
+}*/
+/*--------------------------------------FEED BLOCK------------------------------------*/
+.front .front-quicktab-feed-region {
+	min-height: 450px;
 }
 /*----------------------------------------CONTENT--------------------------------------*/
 #page-title {
     display: none;
 }
 .stories-block-row {
+    display: block;
     background-color: #FFFFFF;
     float: left;
     width: 25%;
 }
 .stories-block-date {
-    background-color: #FFCD05;
-    color: #000000;
+    display: block;
+	background-color: #FFCD05;
+    color: #000000 !important;
     margin: 0;
     padding: 10px 10px 0;
     width: 85.5%;
 }
-.stories-block-date visited {
+.stories-block-date a:visited {
+    display: block;
     background-color: #666766;
     color: #FFFFFF;
     padding: 10px 10px 0;
     width: 85.5%;
 }
 .stories-block-title {
-    background-color: #FFCD05;
-    color: #000000;
+    display: block;
+	background-color: #FFCD05;
+    color: #000000 !important;
     margin-bottom: 15px;
     min-height: 40px;
     padding: 5px 10px 15px;
@@ -195,20 +248,41 @@ ul.quicktabs-tabs li {
     position: relative;
     z-index: 1;
 }
-.news-block-front {
-    float: left;
-    margin: 0 30px 30px 0;
-    padding: 10px 0 0;
-    width: 30%;
-}
-.news-title-field-label {
+/*-------------------------------------------------NEWS-----------------------------------------------*/
+.front-news-view-title {
 	font-family: 'LeagueGothicRegular';
+	font-size: 27px;
 }
+.news-block-front {
+	float: left;
+	margin: 0 30px 30px 0;
+	padding: 20px 0 10px 0;
+	width: 30%;
+	border-bottom: 1px solid gray;
+	min-height: 150px;
+}
+.news-title-field a {
+	font-family: 'PTSansRegular';
+	font-size: 15px;
+	color: black;
+	text-decoration: none;
+	font-weight: bold;
+}
+.views-field-description {
+	font-size: 14px;
+	padding-top: 10px;
+}
+.views-field-title-1 a:link, .views-field-title-1 a:visited {
+	font-size: 11px;
+	color: black;
+	text-decoration: none;
+}
+
 /*-------------------------------------------------FOOTER---------------------------------------------*/
 #section-footer {
     background: url("/sites/all/themes/files/footer.png") no-repeat scroll center top transparent;
     margin: 0;
-    padding: 0 0 80px;
+    padding: 0;
     width: 100%;
 }
 .donate {
