@@ -37,14 +37,16 @@ ul li.leaf {
     list-style-image: none;
     list-style-type: none;
 }
-#block-system-main-menu li.leaf a:active {
-    list-style-image: url("/sites/all/themes/files/active-menu-icon.png");
-    list-style-type: square;
-}
+/*#block-system-main-menu ul li.leaf {
+	list-style-image: url('/sites/all/themes/files/active-menu-icon.png');
+	list-style-type: none;
+	padding: 0 10px 0;
+	float: left;
+}*/
 #block-system-main-menu ul.menu {
     border: medium none;
     list-style: none outside none;
-    padding: 50px 0 0 50px;
+    padding: 50px 0 0 0px;
     text-align: left;
 }
 #block-system-main-menu li a.active {
@@ -58,11 +60,11 @@ ul li.leaf {
     color: #FECD48;
     font-family: 'LeagueGothicRegular';
     font-weight: normal;
-    letter-spacing: 3px;
+    letter-spacing: 1px;
     text-decoration: none;
     text-transform: uppercase;
     float: left;
-    width: 20%;
+	padding: 0 20px 0 20px;
 }
 .block-2 {
 	font-size: 15px;
@@ -72,17 +74,22 @@ ul li.leaf {
 }
 
 /*-----------------------------------------------ANNOUNCEMENTS----------------------------------*/
+#block-block-12 {
+	float: left;
+	margin: 15px 0 0 540px;
+}
+
 #block-views-ows-announcements-block {
     float: left;
     margin: 0;
-    padding: 55px 0 0 20px;
+    padding: 0px 0 0 20px;
     width: 110%;
 }
 .view-ows-announcements {
 	/*border-top: 1px dashed;*/
 	color: darkRed;
 	float: left;
-	font-size: 1.5em;
+	font-size: 20px;
 	font-weight: normal;
 	letter-spacing: 1px;
 	margin: 0;
@@ -93,15 +100,15 @@ ul li.leaf {
 	float: left;
 	margin: 0;
 	padding: 0;
-	width: 45%;
-	min-height: 75px;
-	max-height: 75px;
+	width: 46%;
+	min-height: 85px;
+	max-height: 85px;
 }
 #block-views-ows-announcements-block .views-row-last {
     float: left;
     margin: 0;
     padding: 0 0 0 25px;
-    width: 45%;
+    width: 40%;
     min-height: 75px;
 	max-height: 75px;
 }
@@ -110,33 +117,64 @@ ul li.leaf {
 }
 /*-----------------------------------FEATURED SECTION--------------------------------------*/
 /*---------------------------------------Slideshow-----------------------------------------*/
+
+.views-slideshow-cycle-main-frame-row-item {
+	position: relative;
+}
+.views-slideshow-cycle-main-frame-row-item h2 {
+	margin-bottom: 0;
+}
+.views-slideshow-cycle-main-frame-row-item p {
+	margin: 0 100px 0 0;
+}
+#transparency {
+	position: absolute;
+	bottom: 0px;
+	left: 0px;
+	width: 540px;
+	height: 50%;
+	background-color: #000;
+	filter: alpha(opacity=60);
+	opacity: 0.6;
+	-moz-opacity: 0.6;
+	z-index: 9
+}
+#mycontent {
+	position:absolute;
+	top: 195px;
+	left: 20px;
+	z-index: 999;
+	color: #ffffff;
+	font-size: 14px;
+}
+.views-slideshow-cycle-main-frame-row-item a:link, 
+.views-slideshow-cycle-main-frame-row-item a:visited {
+	font-size: 35px;
+	color: #FECD48;
+	letter-spacing: .2px;
+	font-weight: normal;
+}
 /*.quicktabs-loaded {
     background: url("/sites/all/themes/files/featured.png") no-repeat scroll center bottom transparent;
-}*/
+}
 .quicktabs-tabs a:link, 
 .quicktabs-tabs a:visited {
 	text-decoration: none;
 	padding: 8px;
-} 
-#quicktabs-featured .active {
-	background: url("/sites/all/themes/files/featured.png") no-repeat scroll center bottom transparent;
-	/*position: absolute;
-	z-index: 99999;
-*/}
-.quicktabs-tabs .last {
-	padding: 5px 0 2px 0;
-	background-color: gray;
+}*/ 
+.quicktabs-tabs a {
+	padding: 4px;
+	background-color: #CFD1D2;
+	text-decoration: none;
 }
-/*.quicktabs-tabs .first {
-	padding: 5px 0 2px 0;
-	background-color: gray;
-}
-.quicktabs-tabs .last .active {
+#quicktabs-featured .active a:link {
 	background: url("/sites/all/themes/files/featured.png") no-repeat scroll center bottom transparent;
+	padding: 8px;
 }
-.quicktabs-tabs .first .active {
+#quicktabs-feeds .active a:link {
 	background: url("/sites/all/themes/files/featured.png") no-repeat scroll center bottom transparent;
-}*/
+	padding: 8px;
+}
 ul.quicktabs-tabs {
     margin: 0;
     width: 100%;
@@ -157,10 +195,6 @@ ul.quicktabs-tabs li {
 	padding: 0;
 	position: relative;
 	z-index: 1;
-}
-#quicktabs-tab-featured-0 {
-	padding: 8px;
-	margin: 0
 }
 #quicktabs-container-feeds {
 	border-top: 1px solid;
@@ -299,6 +333,8 @@ ul.quicktabs-tabs li {
 	width: 30%;
 	border-bottom: 1px solid gray;
 	min-height: 150px;
+	min-height: 150px;
+
 }
 .news-title-field a {
 	font-family: 'PTSansRegular';
