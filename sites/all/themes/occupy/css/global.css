@@ -3,6 +3,7 @@
 /*--------------------------------------------TYPOGRAPHY-------------------------------------------*/
 p, div {
     font-family: 'PTSansRegular';
+    font-weight: normal;
 }
 /*----------------------------------------------HEADER---------------------------------------------*/
 /*---------------------------------------------BRANDING--------------------------------------------*/
@@ -28,6 +29,10 @@ h1.site-name, h2.site-name {
     letter-spacing: 1px;
 }
 /*-------------------------------------------------MAIN MENU-----------------------------------------*/
+li.expanded, li.collapsed, li.leaf {
+	padding: 0;
+	margin: 0;
+}
 ul li.leaf {
     list-style-image: none;
     list-style-type: none;
@@ -56,6 +61,8 @@ ul li.leaf {
     letter-spacing: 3px;
     text-decoration: none;
     text-transform: uppercase;
+    float: left;
+    width: 20%;
 }
 .block-2 {
 	font-size: 15px;
@@ -63,12 +70,7 @@ ul li.leaf {
 	padding: 20px 0;
 	width: 100%;
 }
-#block-block-3, #block-block-3--2 {
-    float: left;
-    margin: 0;
-    padding: 20px;
-    width: 100%;
-}
+
 /*-----------------------------------------------ANNOUNCEMENTS----------------------------------*/
 #block-views-ows-announcements-block {
     float: left;
@@ -174,8 +176,9 @@ ul.quicktabs-tabs li {
 	min-height: 450px;
 }
 /*----------------------------------------CONTENT--------------------------------------*/
+/*----------------------------------STORIES BLOCK OF 8---------------------------------*/
 #page-title {
-    display: none;
+    letter-spacing: 1px;
 }
 .stories-block-row {
     display: block;
@@ -248,10 +251,46 @@ ul.quicktabs-tabs li {
     position: relative;
     z-index: 1;
 }
+/*------------------------------------------STORIES BLOCK OF 4----------------------------------------*/
+.view-ows-stories-read-page- .stories-block-row {
+	display: block;
+	background-color: white;
+	float: left;
+	width: 50%;
+}
+.view-ows-stories-read-page- .stories-block-date {
+	display: block;
+	background-color: #FFCD05;
+	color: black !important;
+	margin: 0;
+	padding: 10px 10px 0;
+	width: 87%;
+}
+.view-ows-stories-read-page- .stories-block-title {
+	display: block;
+	background-color: #FFCD05;
+	color: black !important;
+	margin-bottom: 15px;
+	min-height: 40px;
+	padding: 5px 10px 15px;
+	width: 87%;
+}
+
+/*---------------------------------------------ARTICLE NODES------------------------------------------*/
+.field-name-field-image{
+	float: left;
+	margin: 0;
+	padding: 0 15px 0 0;
+}
+.field-name-body {
+	margin: 0;
+	padding: 0;
+}
 /*-------------------------------------------------NEWS-----------------------------------------------*/
 .front-news-view-title {
 	font-family: 'LeagueGothicRegular';
 	font-size: 27px;
+	letter-spacing: 1px;
 }
 .news-block-front {
 	float: left;
@@ -272,10 +311,17 @@ ul.quicktabs-tabs li {
 	font-size: 14px;
 	padding-top: 10px;
 }
-.views-field-title-1 a:link, .views-field-title-1 a:visited {
+.views-field-title-1 a:link, 
+.views-field-title-1 a:visited {
 	font-size: 11px;
 	color: black;
 	text-decoration: none;
+	font-weight: normal;
+}
+.views-field-description {
+	font-size: 14px;
+	padding-top: 10px;
+	font-weight: normal;
 }
 
 /*-------------------------------------------------FOOTER---------------------------------------------*/
@@ -285,12 +331,21 @@ ul.quicktabs-tabs li {
     padding: 0;
     width: 100%;
 }
+#zone-footer .block-title {
+	margin: 30px 0 0 0;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	font-size: 24px;
+	font-weight: normal;
+}
 .donate {
     font-family: 'LeagueGothicRegular';
     font-size: 2.5em;
     font-weight: normal;
     letter-spacing: 2px;
     text-decoration: underline;
+    margin-top: -10px;
+
 }
 .connect {
     font-family: 'LeagueGothicRegular';
@@ -298,4 +353,12 @@ ul.quicktabs-tabs li {
     font-weight: normal;
     letter-spacing: 2px;
     text-decoration: underline;
+    margin-top: -10px;
+}
+#block-block-3, 
+#block-block-3--2 {
+    float: left;
+    margin: 0;
+    padding: 0px;
+    width: 100%;
 }
