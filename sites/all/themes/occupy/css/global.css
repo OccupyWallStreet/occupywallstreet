@@ -211,6 +211,18 @@ ul.quicktabs-tabs li {
 }
 /*----------------------------------------CONTENT--------------------------------------*/
 /*----------------------------------STORIES BLOCK OF 8---------------------------------*/
+#storiestitle {
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	float: left;
+	margin: 0;
+	padding: 0;
+}
+.block-syndicate {
+	float: left;
+	margin: 0;
+	padding: 8px 0 0 0;
+}
 #page-title {
     letter-spacing: 1px;
 }
