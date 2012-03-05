@@ -410,3 +410,15 @@ ul.quicktabs-tabs li {
     padding: 0px;
     width: 100%;
 }
+
+/*-----------------------------------------READ PAGE-----------------------------*/
+#block-views-nodequeue-3-block .item-list ul li {
+	margin: 0;
+	padding: 0;
+}
+#block-views-nodequeue-3-block .views-field-field-image {
+	margin: 0;
+	padding: 5px 0 0 0;
+	position: relative;
+	z-index: 1;
+}
