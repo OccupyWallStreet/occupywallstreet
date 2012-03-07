@@ -208,7 +208,7 @@ ul.quicktabs-tabs li {
   float: left;
   margin-left: 25px;
   position: relative;
-  top: -35px;
+  top: -30px;
   z-index: 50;
 }
 #quicktabs-featured .views-slideshow-controls-bottom .views-slideshow-pager-field-item {
@@ -230,7 +230,7 @@ ul.quicktabs-tabs li {
 #quicktabs-featured .view-footer {
   display: inline-block;
   position: relative;
-  top: -35px;
+  top: -30px;
   z-index: 50;
 }
 #quicktabs-featured .view-footer p {
