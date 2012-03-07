@@ -115,6 +115,11 @@ ul li.leaf {
 .announcements-view {
 	font-family: 'LeagueGothicRegular';
 }
+.announcements-view p {
+  font-family: 'LeagueGothicRegular';
+  margin: 0;
+  line-height: 1.1em;
+}
 /*-----------------------------------FEATURED SECTION--------------------------------------*/
 /*---------------------------------------Slideshow-----------------------------------------*/
 
