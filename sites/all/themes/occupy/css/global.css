@@ -210,6 +210,7 @@ ul.quicktabs-tabs li {
   position: relative;
   top: -30px;
   z-index: 50;
+  line-height: 1em;
 }
 #quicktabs-featured .views-slideshow-controls-bottom .views-slideshow-pager-field-item {
   color: #666;
