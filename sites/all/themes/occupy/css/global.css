@@ -202,6 +202,47 @@ ul.quicktabs-tabs li {
 	overflow: scroll;
 	max-height: 360px;
 }
+/* Slideshow Pager "dots" */
+#quicktabs-featured .views-slideshow-controls-bottom {
+  display: inline-block;
+  float: left;
+  margin-left: 25px;
+  position: relative;
+  top: -35px;
+  z-index: 50;
+}
+#quicktabs-featured .views-slideshow-controls-bottom .views-slideshow-pager-field-item {
+  color: #666;
+  width: 11px;
+  height: 11px;
+  margin: 0px 5px;
+  overflow: hidden;
+  font-size: 0;
+  display: inline-block;
+  background: url("/sites/all/themes/files/dot-white.png");
+}
+#quicktabs-featured .views-slideshow-controls-bottom .views-slideshow-pager-field-item:hover {
+  cursor: pointer;
+}
+#quicktabs-featured .views-slideshow-controls-bottom .active {
+  background: url("/sites/all/themes/files/dot-yellow.png");
+}
+#quicktabs-featured .view-footer {
+  display: inline-block;
+  position: relative;
+  top: -35px;
+  z-index: 50;
+}
+#quicktabs-featured .view-footer p {
+  margin: 0px 0px 0px 10px;
+}
+#quicktabs-featured .view-footer a {
+  font-family: 'PTSansRegular';
+  font-size: 13px;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #FFF;
+}
 /*#views_slideshow_cycle_main_nodequeue_1-block {
 	position: relative;
 }*/
