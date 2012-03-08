@@ -89,7 +89,7 @@ ul li.leaf {
 	/*border-top: 1px dashed;*/
 	color: darkRed;
 	float: left;
-	font-size: 20px;
+	font-size: 24px;
 	font-weight: normal;
 	letter-spacing: 1px;
 	margin: 0;
@@ -459,6 +459,16 @@ ul.quicktabs-tabs li {
 }
 
 /*-----------------------------------------READ PAGE-----------------------------*/
+#block-views-nodequeue-3-block .block-title {
+	border-bottom: 1px solid;
+	color: black;
+	float: left;
+	font-size: 12px;
+	margin: 0 0 17px 0;
+	width: 98%;
+	font-weight: bold;
+	font-family: 'PTSansRegular';
+}
 #block-views-nodequeue-3-block .item-list ul li {
 	margin: 0;
 	padding: 0;
@@ -468,4 +478,54 @@ ul.quicktabs-tabs li {
 	padding: 5px 0 0 0;
 	position: relative;
 	z-index: 1;
+}
+/* Featured Article View */
+.view-nodequeue-3 {
+	position: relative;
+}
+.view-nodequeue-3 h2 {
+	margin-bottom: 0;
+}
+.view-nodequeue-3 p {
+	margin: 0 100px 0 0;
+}
+#transparency-single-featured-story {
+	position: absolute;
+	top: 120px;
+	left: 0px;
+	width: 380px;
+	height: 20%;
+	background-color: black;
+	filter: alpha(opacity=60);
+	opacity: 0.6;
+	-moz-opacity: 0.6;
+	z-index: 9;
+}
+#my-content-single-featured-story {
+	position: absolute;
+	top: 135px;
+	left: 10px;
+	z-index: 999;
+	color: white;
+	font-size: 12px;
+}
+.view-nodequeue-3 a:link, 
+.view-nodequeue-3 a:visited {
+	font-size: 25px;
+	color: white;
+	letter-spacing: 1px;
+	font-weight: normal;
+	text-transform: uppercase;
+	text-decoration: none;
+}
+/*-----------------------------------END READ PAGE---------------------------*/
+/*---------------------------------BEGIN LEARN PAGE--------------------------*/
+.view-ga-consense-docs .views-field-title a {
+	color: #000;
+	text-decoration: none;
+}
+.view-ga-consense-docs .views-field-title {
+	font-size: 30px;
+	font-family: 'LeagueGothicRegular';
+	letter-spacing: 1px;
 }
