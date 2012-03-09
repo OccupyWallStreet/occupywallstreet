@@ -1,5 +1,7 @@
 /* This file will hold the main styles for your website. */
 
+/*-------------------"OCCUPY" THEME BASED ON OMEGA, BUILT BY Joel Moore (banghouse)----------------*/
+ 
 /*--------------------------------------------TYPOGRAPHY-------------------------------------------*/
 p, div {
     font-family: 'PTSansRegular';
@@ -391,8 +393,7 @@ ul.quicktabs-tabs li {
 	padding: 20px 0 10px 0;
 	width: 30%;
 	border-bottom: 1px solid gray;
-	min-height: 150px;
-	min-height: 150px;
+	min-height: 160px;
 
 }
 .news-title-field a {
@@ -529,3 +530,30 @@ ul.quicktabs-tabs li {
 	font-family: 'LeagueGothicRegular';
 	letter-spacing: 1px;
 }
+/*----------------------------------CONTRIBUTE PAGE-----------------------------*/
+.block-14 h2.block-title,
+.block-ows-events-block h2.block-title,
+.block-webform-client-block-30 h2.block-title {
+	font-size: 35px;
+	margin: 0;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	font-weight: normal;
+}
+.view-ows-events {
+	padding: 15px;
+}
+.view-ows-events .view-content {
+	background: #EDEDED;
+	padding: 15px;
+}
+.contribute-block-date-field {
+	float: left;
+	font-size: 12px;
+}
+.contribute-block-location-name-field {
+	float: left;
+	font-size: 12px;
+	margin: 0 0 0 5px
+}
+.contribute-block-title-field
