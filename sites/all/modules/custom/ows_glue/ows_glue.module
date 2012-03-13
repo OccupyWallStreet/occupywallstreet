@@ -1,0 +1,20 @@
+<?php
+
+/**
+ * @file
+ * Custom OWS "clue" code.
+ *
+ */
+
+/**
+ * Add the custom CSS and JS for the Contribute webform.
+ */
+function ows_glue_form_webform_client_form_30_alter($form, &$form_state, $form_id) {
+  
+  drupal_add_css(drupal_get_path('module', 'ows_glue') . '/ows_glue.css');
+  drupal_add_js('sites/all/libraries/jquery.infieldlabel/jquery.infieldlabel.min.js');
+  drupal_add_js(drupal_get_path('module', 'ows_glue') . '/ows_glue.js');
+
+  return $form;
+}
+
