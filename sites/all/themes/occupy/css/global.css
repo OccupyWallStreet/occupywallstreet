@@ -549,7 +549,7 @@ ul.quicktabs-tabs li {
 	font-weight: normal;
 	font-family: 'LeagueGothicRegular';
 	float: left;
-	padding: 0 5px 0 0;
+	padding: 2px 5px 0 0;
 }
 .custom-title-fourth {
 	font-size: 20px;
@@ -558,7 +558,9 @@ ul.quicktabs-tabs li {
 	text-transform: uppercase;
 	font-weight: normal;
 	font-family: 'LeagueGothicRegular';
-	color: #FECD48;
+	color: #FECD48;		
+	float: left;
+	padding: 2px 5px 0 0;
 }
 .node-webform h2.node-title {
 	font-size: 28px;
@@ -672,6 +674,12 @@ padding: 5px 15px 0px 10px;
 	margin-top: 20px;
 	border-top: 1px dashed #333;
 	padding-top: 30px;
+}
+.yellowthing {
+	background: url('/sites/all/themes/files/yellowthing.png') no-repeat;
+	padding: 15px 20px;
+	font-size: 0;
+	margin: 0 0px 10px 200px;
 }
 /*-------------------------------------------------FOOTER---------------------------------------------*/
 #zone-footer-wrapper p {
