@@ -609,7 +609,7 @@ ul.quicktabs-tabs li {
 }
 .view-ows-events .view-content {
 	background: #EDEDED;
-	padding: 15px 15px 15px 10px;
+	padding: 15px 15px 50px 10px;
 }
 .contribute-block-date-field {
 	float: left;
@@ -628,6 +628,14 @@ ul.quicktabs-tabs li {
 	color: black;
 	font-weight: bold;
 	text-decoration: none;
+	float: left;
+}
+.blackthing {
+	background: url('/sites/all/themes/files/blackthing.png') no-repeat;
+	padding: 15px 20px;
+	font-size: 0;
+	float: left;
+	margin: 0px 0 0 10px;
 }
 /*----------------------------------BLOCKS (Bottom Row)-----------------------------------*/
 .block-16, 
