@@ -3,6 +3,32 @@
 /*-------------------"OCCUPY" THEME BASED ON OMEGA, BUILT BY Joel Moore (banghouse)----------------*/
  
 /*--------------------------------------------TYPOGRAPHY-------------------------------------------*/
+h1 {
+	font-size: 40px;
+	font-family: 'LeagueGothicRegular';
+}
+h2 {
+	font-size: 33px;
+	font-family: 'LeagueGothicRegular';
+}
+h3 {
+	font-size: 27px;
+	font-family: 'LeagueGothicRegular';
+}
+h4 {
+	font-size: 23px;
+	font-family: 'LeagueGothicRegular';
+}
+h5 {
+	font-size: 14px;
+	font-family: 'PTSansRegular';
+    font-weight: bold;
+}
+/*h6 {
+	font-size: 12px;
+	font-family: 'PTSansCaps';
+    font-weight: bold;
+}*/
 p, div {
     font-family: 'PTSansRegular';
     font-weight: normal;
@@ -533,6 +559,50 @@ ul.quicktabs-tabs li {
 	letter-spacing: 1px;
 }
 /*----------------------------------CONTRIBUTE PAGE-----------------------------*/
+/*-----------------------------------BLOCK TITLES(Top Row)--------------------------------*/
+.custom-title-first {
+	font-size: 35px;
+	margin: 0;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	font-weight: normal;
+	font-family: 'LeagueGothicRegular';
+	float: left;
+	padding: 0 5px 0 0;
+}
+.custom-title-second {
+	font-size: 35px;
+	margin: 0;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	font-weight: normal;
+	font-family: 'LeagueGothicRegular';
+	color: #FECD48;
+}
+.custom-title-third {
+	font-size: 20px;
+	margin: 0;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	font-weight: normal;
+	font-family: 'LeagueGothicRegular';
+	float: left;
+	padding: 0 5px 0 0;
+}
+.custom-title-fourth {
+	font-size: 20px;
+	margin: 0;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	font-weight: normal;
+	font-family: 'LeagueGothicRegular';
+	color: #FECD48;
+}
+.node-webform h2.node-title {
+	font-size: 28px;
+	display: none;
+}
+
 .block-14 h2.block-title,
 .block-ows-events-block h2.block-title,
 .block-webform-client-block-30 h2.block-title {
@@ -542,20 +612,77 @@ ul.quicktabs-tabs li {
 	text-transform: uppercase;
 	font-weight: normal;
 }
+/*-------------------------------EVENTS BLOCK-------------------------------------------*/
+.views-field-field-date 
+
 .view-ows-events {
-	padding: 15px;
+	/*padding: 15px*/;
 }
 .view-ows-events .view-content {
 	background: #EDEDED;
-	padding: 15px;
+	padding: 15px 15px 15px 10px;
 }
 .contribute-block-date-field {
 	float: left;
-	font-size: 12px;
+	width: 55%;
+	margin: 0;
+	font-size: 11px;
 }
 .contribute-block-location-name-field {
 	float: left;
-	font-size: 12px;
-	margin: 0 0 0 5px
+	font-size: 11px;
+	margin: 0;
+	width: 40%;
 }
-.contribute-block-title-field
+.contribute-block-title-field a {
+	font-size: 14px;
+	color: black;
+	font-weight: bold;
+	text-decoration: none;
+}
+/*----------------------------------BLOCKS (Bottom Row)-----------------------------------*/
+.block-16, 
+.block-17, 
+.block-18 {
+background: #EDEDED;
+padding: 5px 15px 0px 10px;
+}
+.custom-block-16 {
+	font-size: 35px;
+	margin: 0;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	font-weight: normal;
+	font-family: 'LeagueGothicRegular';
+	color: #3188B9;
+	padding: 0 5px 0 0;
+}
+.custom-block-17 {
+	font-size: 35px;
+	margin: 0;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	font-weight: normal;
+	font-family: 'LeagueGothicRegular';
+	color: #B50028;
+	padding: 0 5px 0 0;
+}
+.custom-block-18 {
+	font-size: 35px;
+	margin: 0;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	font-weight: normal;
+	font-family: 'LeagueGothicRegular';
+	color: #F4922F;
+	padding: 0 5px 0 0;
+}
+/*---------------------------------POSTSCRIPT ZONE----------------------------------*/
+#zone-postscript-wrapper {
+	margin-top: 20px;
+}
+#zone-postscript {
+	margin-top: 20px;
+	border-top: 1px dashed #333;
+	padding: 20px;
+}
