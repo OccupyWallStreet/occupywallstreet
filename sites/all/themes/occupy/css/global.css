@@ -447,46 +447,6 @@ ul.quicktabs-tabs li {
 	padding-top: 10px;
 	font-weight: normal;
 }
-
-/*-------------------------------------------------FOOTER---------------------------------------------*/
-#section-footer {
-    background: url("/sites/all/themes/files/footer.png") no-repeat scroll center top transparent;
-    margin: 0;
-    padding: 0;
-    width: 100%;
-}
-#zone-footer .block-title {
-	margin: 30px 0 0 0;
-	letter-spacing: 1px;
-	text-transform: uppercase;
-	font-size: 24px;
-	font-weight: normal;
-}
-.donate {
-    font-family: 'LeagueGothicRegular';
-    font-size: 2.5em;
-    font-weight: normal;
-    letter-spacing: 2px;
-    text-decoration: underline;
-    margin-top: -10px;
-
-}
-.connect {
-    font-family: 'LeagueGothicRegular';
-    font-size: 2.5em;
-    font-weight: normal;
-    letter-spacing: 2px;
-    text-decoration: underline;
-    margin-top: -10px;
-}
-#block-block-3, 
-#block-block-3--2 {
-    float: left;
-    margin: 0;
-    padding: 0px;
-    width: 100%;
-}
-
 /*-----------------------------------------READ PAGE-----------------------------*/
 #block-views-nodequeue-3-block .block-title {
 	border-bottom: 1px solid;
@@ -548,6 +508,7 @@ ul.quicktabs-tabs li {
 	text-decoration: none;
 }
 /*-----------------------------------END READ PAGE---------------------------*/
+
 /*---------------------------------BEGIN LEARN PAGE--------------------------*/
 .view-ga-consense-docs .views-field-title a {
 	color: #000;
@@ -558,8 +519,9 @@ ul.quicktabs-tabs li {
 	font-family: 'LeagueGothicRegular';
 	letter-spacing: 1px;
 }
-/*----------------------------------CONTRIBUTE PAGE-----------------------------*/
-/*-----------------------------------BLOCK TITLES(Top Row)--------------------------------*/
+
+/*----------------------------------BEGIN CONTRIBUTE PAGE-----------------------------*/
+/*----------------------------------BLOCK TITLES(Top Row)-----------------------------*/
 .custom-title-first {
 	font-size: 35px;
 	margin: 0;
@@ -612,8 +574,33 @@ ul.quicktabs-tabs li {
 	text-transform: uppercase;
 	font-weight: normal;
 }
+.webform-client-form button, 
+.webform-client-form input[type="reset"],
+.webform-client-form input[type="submit"],
+.webform-client-form input[type="button"] {
+	-webkit-appearance: none;
+	-moz-border-radius: 0;
+	-webkit-border-radius: 0;
+	-moz-background-clip: padding;
+	-webkit-background-clip: none;
+	background: none;
+	border-radius: 0;
+	background: url(/sites/all/themes/files/sendbutton.png) no-repeat;
+	border: 0;
+	border-color: none;
+	cursor: pointer;
+	color: none;
+	font: none;
+	outline: 0;
+	overflow: none;
+	padding: 10px 35px 30px 40px;
+	text-shadow: none;
+	width: auto;
+	font-size: 0;
+	float: right;
+	margin: 0 0 10px 0;
+}
 /*-------------------------------EVENTS BLOCK-------------------------------------------*/
-.views-field-field-date 
 
 .view-ows-events {
 	/*padding: 15px*/;
@@ -684,5 +671,53 @@ padding: 5px 15px 0px 10px;
 #zone-postscript {
 	margin-top: 20px;
 	border-top: 1px dashed #333;
-	padding: 20px;
+	padding-top: 30px;
+}
+/*-------------------------------------------------FOOTER---------------------------------------------*/
+#zone-footer-wrapper p {
+	margin: 0
+}
+#section-footer {
+    background: url("/sites/all/themes/files/footer.png") no-repeat scroll center top transparent;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+#zone-footer .block-title {
+	margin: 30px 0 0 0;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	font-size: 24px;
+	font-weight: normal;
+}
+.donate {
+    font-family: 'LeagueGothicRegular';
+    font-size: 2.5em;
+    font-weight: normal;
+    letter-spacing: 2px;
+    text-decoration: underline;
+    margin: 10px 0 0 0;
+
+}
+.connect {
+    font-family: 'LeagueGothicRegular';
+    font-size: 2.5em;
+    font-weight: normal;
+    letter-spacing: 2px;
+    text-decoration: underline;
+    margin: 10px 0 0 0;
+}
+#block-block-3, 
+#block-block-3--2 {
+    float: left;
+    margin: 23px 0 0 0;
+    padding: 0px;
+    width: 100%;
+}
+#block-block-3 p, 
+#block-block-3--2 p {
+    float: left;
+    margin: 0;
+    padding: 0px;
+    width: 100%;
 }
