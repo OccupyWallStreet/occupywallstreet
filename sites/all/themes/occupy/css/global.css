@@ -122,19 +122,15 @@ ul li.leaf {
 	letter-spacing: 1px;
 	text-transform: uppercase;
 }
-.newsletter-email-label {
+.newsletter-email {
 	float: left;
-	margin: 0;
-}
-.newsletter-email-form-field {
-	float: left;
-	margin: 0;
+	margin: 0 0 0 10px;
 }
 #email-Primary {
 	float: left;
 	margin: 0;
 }
-.newsletter-submit-button {
+.newsletter-email-submit-button {
 	float: left;
 	margin: 0
 }
