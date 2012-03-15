@@ -581,7 +581,33 @@ ul.quicktabs-tabs li {
 	font-family: 'LeagueGothicRegular';
 	letter-spacing: 1px;
 }
-
+.block-quicktabs-learn h2.block-title {
+	font-size: 40px;
+	margin: 0;
+	font-family: 'LeagueGothicRegular';
+	letter-spacing: 1px;
+	text-transform: uppercase;
+}
+.page-learn h2.node-title a {
+	font-size: 50px;
+	color: black;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	text-decoration: none;
+	font-weight: normal;
+}
+ul.quicktabs-tabs.quicktabs-style-arrows {
+	font: bold 12px/170% Verdana;
+	border-bottom: 1px solid #CCC;
+	padding: 0 10px 0 0!important;
+	line-height: 22px;
+	margin: 20px 0 20px 0;
+}
+.document-consensed {
+	margin: 0;
+	background: #DDD;
+	padding: 20px;
+}
 /*----------------------------------BEGIN CONTRIBUTE PAGE-----------------------------*/
 /*----------------------------------BLOCK TITLES(Top Row)-----------------------------*/
 .custom-title-first {
