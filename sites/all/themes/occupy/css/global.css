@@ -138,6 +138,31 @@ ul li.leaf {
 	float: left;
 	margin: 0
 }
+.newsletter-email-submit-button button,
+.newsletter-email-submit-button input[type="reset"],
+.newsletter-email-submit-button input[type="submit"],
+.newsletter-email-submit-button input[type="button"] {
+	-webkit-appearance: none;
+	-moz-border-radius: 0;
+	-webkit-border-radius: 0;
+	-moz-background-clip: padding;
+	-webkit-background-clip: padding;
+	background: url('/sites/all/themes/files/newsletter-submit-button.png') no-repeat;
+	border-radius: 0;
+	background: url('/sites/all/themes/files/newsletter-submit-button.png') no-repeat;
+	border: 0;
+	border-color: 0;
+	cursor: pointer;
+	color: none;
+	font: 0;
+	outline: 0;
+	overflow: none;
+	padding: 20px 10px 0px;
+	text-shadow: 0;
+	width: 0;
+	font-size: 0;
+	margin: 3px 0 0 5px;
+}
 /*-----------------------------------------------ANNOUNCEMENTS----------------------------------*/
 #block-block-12 {
 	float: left;
