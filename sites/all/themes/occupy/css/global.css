@@ -396,7 +396,7 @@ ul.quicktabs-tabs li {
     width: 85.5%;
 }
 .stories-block-title a:visited {
-    background-color: #666766;
+    background-color: #666766 !important;
     color: white;
     margin-bottom: 15px;
     min-height: 40px;
@@ -830,7 +830,9 @@ padding: 5px 15px 0px 10px;
     letter-spacing: 2px;
     text-decoration: underline;
     margin: 10px 0 0 0;
-
+}
+.donate a {
+	color: #000;
 }
 .connect {
     font-family: 'LeagueGothicRegular';

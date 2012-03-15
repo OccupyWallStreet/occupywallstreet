@@ -1,0 +1,12 @@
+name = MultiBlock
+description = Allows the creation of multiple instances of blocks
+core = 7.x
+files[] = multiblock.install
+files[] = multiblock.module
+
+; Information added by drupal.org packaging script on 2011-08-27
+version = "7.x-1.x-dev"
+core = "7.x"
+project = "multiblock"
+datestamp = "1314406065"
+
