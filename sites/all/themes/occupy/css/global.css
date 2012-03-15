@@ -762,7 +762,36 @@ padding: 5px 15px 0px 10px;
 	color: #F4922F;
 	padding: 0 5px 0 0;
 }
-/*---------------------------------POSTSCRIPT ZONE----------------------------------*/
+/*-------------------------------END CONTRIBUTE PAGE-------------------------------*/
+/*--------------------------------BEGIN CONTACT PAGE-------------------------------*/
+
+.contact-page-block-wrapper {
+	padding: 10px 20px;
+	background: #ddd;
+	min-height: 200px;
+}
+.shipping-block-title {
+	font-size: 40px;
+	font-family: 'LeagueGothicRegular';
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	color: #3188B9;
+}
+.information-block-title {
+	font-size: 40px;
+	font-family: 'LeagueGothicRegular';
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	color: #B50028;
+}
+.press-block-title {
+	font-size: 40px;
+	font-family: 'LeagueGothicRegular';
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	color: #F4922F;
+}
+/*---------------------------------POSTSCRIPT ZONE---------------------------------*/
 #zone-postscript-wrapper {
 	margin-top: 20px;
 }
