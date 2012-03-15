@@ -100,18 +100,55 @@ ul li.leaf {
 	padding: 20px 0;
 	width: 100%;
 }
-
+/*---------------------------------------------NEWSLETTER FORM---------------------------------*/
+.block-15 {
+	float: left;
+	width: 90%;
+	margin: 0;
+}
+.newsletter-wrapper {
+	float: left;
+	width: 100%;
+}
+.newsletter-wrapper p {
+	margin: 0;
+	padding: 0;
+}
+.newsletter-text {
+	float: left;
+	margin: 0;
+	font-family: 'LeagueGothicRegular';
+	font-size: 23px;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+}
+.newsletter-email-label {
+	float: left;
+	margin: 0;
+}
+.newsletter-email-form-field {
+	float: left;
+	margin: 0;
+}
+#email-Primary {
+	float: left;
+	margin: 0;
+}
+.newsletter-submit-button {
+	float: left;
+	margin: 0
+}
 /*-----------------------------------------------ANNOUNCEMENTS----------------------------------*/
 #block-block-12 {
 	float: left;
-	margin: 15px 0 0 540px;
+	margin: 20px 0 0 0px;
+	width: 10%;
 }
-
 #block-views-ows-announcements-block {
-    float: left;
-    margin: 0;
-    padding: 0px 0 0 20px;
-    width: 110%;
+	float: left;
+	margin: 0;
+	padding: 0;
+	width: 112%;
 }
 .view-ows-announcements {
 	/*border-top: 1px dashed;*/
