@@ -254,13 +254,13 @@ ul li.leaf {
 	padding: 8px;
 }*/ 
 .quicktabs-tabs a {
-	padding: 4px;
+	padding: 4px 10px;
 	background-color: #CFD1D2;
 	text-decoration: none;
 }
 #quicktabs-featured .active a:link {
 	background: url("/sites/all/themes/files/featured.png") no-repeat scroll center bottom transparent;
-	padding: 8px;
+	padding: 8px 15px;
 	position: relative;
 	z-index: 999;
 }
