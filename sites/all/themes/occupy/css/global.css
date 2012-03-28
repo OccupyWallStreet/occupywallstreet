@@ -301,25 +301,25 @@ ul.quicktabs-tabs li {
   float: left;
   margin-left: 25px;
   position: relative;
-  top: -30px;
+  top: -38px;
   z-index: 50;
   line-height: 1em;
 }
 #quicktabs-featured .views-slideshow-controls-bottom .views-slideshow-pager-field-item {
   color: #666;
-  width: 11px;
-  height: 11px;
-  margin: 0px 5px;
+  width: 24px;
+  height: 24px;
+  margin: 0px;
   overflow: hidden;
   font-size: 0;
   display: inline-block;
-  background: url("/sites/all/themes/files/dot-white.png");
+  background: url("/sites/all/themes/files/navdot_sprite.png");
 }
 #quicktabs-featured .views-slideshow-controls-bottom .views-slideshow-pager-field-item:hover {
   cursor: pointer;
 }
 #quicktabs-featured .views-slideshow-controls-bottom .active {
-  background: url("/sites/all/themes/files/dot-yellow.png");
+  background-position: -24px 0;
 }
 #quicktabs-featured .view-footer {
   display: inline-block;
