@@ -391,21 +391,17 @@ ul.quicktabs-tabs li {
     padding: 5px 10px 15px;
     width: 85.5%;
 }
-.stories-block-title a:visited {
-    background-color: #666766 !important;
-    color: white;
-    margin-bottom: 15px;
-    min-height: 40px;
-    padding: 5px 10px 15px;
-    width: 85.5%;
-}
 .stories-block-title a {
     color: #000000 !important;
     font-weight: bold;
     text-decoration: none;
 }
 .stories-block-title a:visited {
-    color: #FFFFFF;
+    margin-bottom: 15px;
+    min-height: 40px;
+    padding: 5px 10px 15px;
+    width: 85.5%;
+    color: #666 !important;
     font-weight: bold;
     text-decoration: none;
 }
