@@ -122,19 +122,15 @@ ul li.leaf {
 	letter-spacing: 1px;
 	text-transform: uppercase;
 }
-.newsletter-email-label {
+.newsletter-email {
 	float: left;
-	margin: 0;
-}
-.newsletter-email-form-field {
-	float: left;
-	margin: 0;
+	margin: 0 0 0 10px;
 }
 #email-Primary {
 	float: left;
 	margin: 0;
 }
-.newsletter-submit-button {
+.newsletter-email-submit-button {
 	float: left;
 	margin: 0
 }
@@ -258,13 +254,13 @@ ul li.leaf {
 	padding: 8px;
 }*/ 
 .quicktabs-tabs a {
-	padding: 4px;
+	padding: 4px 10px;
 	background-color: #CFD1D2;
 	text-decoration: none;
 }
 #quicktabs-featured .active a:link {
 	background: url("/sites/all/themes/files/featured.png") no-repeat scroll center bottom transparent;
-	padding: 8px;
+	padding: 8px 15px;
 	position: relative;
 	z-index: 999;
 }
@@ -305,25 +301,25 @@ ul.quicktabs-tabs li {
   float: left;
   margin-left: 25px;
   position: relative;
-  top: -30px;
+  top: -38px;
   z-index: 50;
   line-height: 1em;
 }
 #quicktabs-featured .views-slideshow-controls-bottom .views-slideshow-pager-field-item {
   color: #666;
-  width: 11px;
-  height: 11px;
-  margin: 0px 5px;
+  width: 24px;
+  height: 24px;
+  margin: 0px;
   overflow: hidden;
   font-size: 0;
   display: inline-block;
-  background: url("/sites/all/themes/files/dot-white.png");
+  background: url("/sites/all/themes/files/navdot_sprite.png");
 }
 #quicktabs-featured .views-slideshow-controls-bottom .views-slideshow-pager-field-item:hover {
   cursor: pointer;
 }
 #quicktabs-featured .views-slideshow-controls-bottom .active {
-  background: url("/sites/all/themes/files/dot-yellow.png");
+  background-position: -24px 0;
 }
 #quicktabs-featured .view-footer {
   display: inline-block;
@@ -395,21 +391,17 @@ ul.quicktabs-tabs li {
     padding: 5px 10px 15px;
     width: 85.5%;
 }
-.stories-block-title a:visited {
-    background-color: #666766 !important;
-    color: white;
-    margin-bottom: 15px;
-    min-height: 40px;
-    padding: 5px 10px 15px;
-    width: 85.5%;
-}
 .stories-block-title a {
     color: #000000 !important;
     font-weight: bold;
     text-decoration: none;
 }
 .stories-block-title a:visited {
-    color: #FFFFFF;
+    margin-bottom: 15px;
+    min-height: 40px;
+    padding: 5px 10px 15px;
+    width: 85.5%;
+    color: #666 !important;
     font-weight: bold;
     text-decoration: none;
 }
