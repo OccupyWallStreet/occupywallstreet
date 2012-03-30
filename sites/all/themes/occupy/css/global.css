@@ -116,11 +116,12 @@ ul li.leaf {
 }
 .newsletter-text {
 	float: left;
-	margin: 0;
+	margin: 0 10px 0 0;
 	font-family: 'LeagueGothicRegular';
-	font-size: 23px;
+	font-size: 20px;
 	letter-spacing: 1px;
 	text-transform: uppercase;
+	font-weight: normal;
 }
 .newsletter-email {
 	float: left;
@@ -158,6 +159,42 @@ ul li.leaf {
 	width: 0;
 	font-size: 0;
 	margin: 3px 0 0 5px;
+}
+#block-multiblock-1 textarea, 
+#block-multiblock-1 select, 
+#block-multiblock-1 input[type="date"],
+#block-multiblock-1 input[type="datetime"],
+#block-multiblock-1 input[type="datetime-local"],
+#block-multiblock-1 input[type="email"],
+#block-multiblock-1 input[type="month"],
+#block-multiblock-1 input[type="number"],
+#block-multiblock-1 input[type="password"],
+#block-multiblock-1 input[type="search"],
+#block-multiblock-1 input[type="tel"],
+#block-multiblock-1 input[type="text"],
+#block-multiblock-1 input[type="time"],
+#block-multiblock-1 input[type="url"],
+#block-multiblock-1 input[type="week"] {
+	-webkit-appearance: none;
+	-moz-border-radius: 0;
+	-webkit-border-radius: 0;
+	border-radius: 0;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	-moz-background-clip: padding;
+	-webkit-background-clip: padding;
+	background-clip: padding-box;
+	background-color: white;
+	border: 1px solid;
+	color: black;
+	outline: 0;
+	padding: 2px 3px;
+	font-size: 13px;
+	font-family: Arial, sans-serif;
+	height: 1.8em;
+	border-color: #848484 #C1C1C1 #E1E1E1;
+	width: 55%;
 }
 /*-----------------------------------------------ANNOUNCEMENTS----------------------------------*/
 #block-block-12 {
@@ -574,14 +611,16 @@ ul.quicktabs-tabs li {
 	letter-spacing: 1px;
 }
 .block-quicktabs-learn h2.block-title {
-	font-size: 50px;
+	font-size: 46px;
 	margin: 0;
 	font-family: 'LeagueGothicRegular';
 	letter-spacing: 1px;
 	text-transform: uppercase;
+	font-weight: normal;
+	line-height: 1em;
 }
 .page-learn h2.node-title a {
-	font-size: 40px;
+	font-size: 30px;
 	color: black;
 	text-transform: uppercase;
 	letter-spacing: 1px;
@@ -599,6 +638,73 @@ ul.quicktabs-tabs.quicktabs-style-arrows {
 	margin: 0;
 	background: #DDD;
 	padding: 20px;
+}
+#block-quicktabs-learn ul.quicktabs-tabs.quicktabs-style-arrows li.active a, 
+#block-quicktabs-learn ul.quicktabs-tabs.quicktabs-style-arrows li a:hover {
+	text-decoration: none;
+	background: transparent url(/sites/all/themes/files/learntabs.png) no-repeat center bottom;
+	padding: 10px;
+	letter-spacing: 1px;
+	font-weight: normal;
+}
+#block-quicktabs-learn ul.quicktabs-tabs.quicktabs-style-arrows a {
+	padding: 5px 10px;
+	background-color: #CFD1D2;
+	text-decoration: none;
+	letter-spacing: 1px;
+	font-weight: normal;
+}
+#learn_sidebar_block {
+	background-color: black;
+	font-size: 0;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+.learn_sidebar_text {
+	padding: 0 0 0 10px;
+	text-transform: uppercase;
+	font-size: 20px;
+	color: white;
+	font-family: 'LeagueGothicRegular';
+	letter-spacing: 1px;
+	text-transform: uppercase;
+}
+.block-27 p {
+	margin: 0 0 5px 0;
+}
+.faq-block-title {
+	text-transform: uppercase;
+	color: black;
+	letter-spacing: 1px;
+	font-family: 'LeagueGothicRegular';
+	font-size: 30px;
+	text-align: center;
+	margin-top: 40px;
+}
+#faq_background_dark {
+	padding: 20px;
+	background-color: #ECECEC;
+	font-size: 0;
+}
+#faq_background_light {
+	padding: 20px;
+	background-color: #F9F9F9;
+	font-size: 0;
+}
+.faq-sidebar-letter {
+	font-size: 40px;
+	text-transform: uppercase;
+	color: black;
+	letter-spacing: 1px;
+	font-family: 'LeagueGothicRegular';
+	float: left;
+	padding: 0 20px 0 0;
+}
+.faq-sidebar-text {
+	color: black;
+	font-size: 13px;
+	margin: 0 0 0 40px;
 }
 /*----------------------------------BEGIN CONTRIBUTE PAGE-----------------------------*/
 /*----------------------------------BLOCK TITLES(Top Row)-----------------------------*/
@@ -783,6 +889,7 @@ padding: 5px 15px 0px 10px;
 	letter-spacing: 1px;
 	color: #F4922F;
 }
+
 /*---------------------------------POSTSCRIPT ZONE---------------------------------*/
 #zone-postscript-wrapper {
 	margin-top: 20px;
