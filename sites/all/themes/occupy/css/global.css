@@ -629,7 +629,7 @@ ul.quicktabs-tabs li {
 }
 ul.quicktabs-tabs.quicktabs-style-arrows {
 	font: bold 12px/170% Verdana;
-	border-bottom: 1px solid #CCC;
+	border-bottom: 0px solid #CCC;
 	padding: 0 10px 0 0!important;
 	line-height: 22px;
 	margin: 20px 0 20px 0;
@@ -670,7 +670,7 @@ ul.quicktabs-tabs.quicktabs-style-arrows {
 	letter-spacing: 1px;
 	text-transform: uppercase;
 }
-.block-27 p {
+.know-your-rights {
 	margin: 0 0 5px 0;
 }
 .faq-block-title {
