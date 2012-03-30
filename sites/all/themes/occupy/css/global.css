@@ -123,10 +123,10 @@ ul li.leaf {
 	text-transform: uppercase;
 	font-weight: normal;
 }
-.newsletter-email {
+/*.newsletter-email {
 	float: left;
 	margin: 0 0 0 10px;
-}
+}*/
 #email-Primary {
 	float: left;
 	margin: 0;
