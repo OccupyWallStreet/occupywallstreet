@@ -82,17 +82,18 @@ ul li.leaf {
 	float: left;
 	margin: 0;
 }*/
-#block-system-main-menu li a, #block-system-main-menu li a:hover, #block-system-main-menu li a:link {
+#block-system-main-menu li a, #block-system-main-menu li a:link {
     color: #FECD48;
     font-family: 'LeagueGothicRegular';
     font-weight: normal;
-    letter-spacing: 1px;
+    letter-spacing: 3px;
     text-decoration: none;
     text-transform: uppercase;
     float: left;
-	padding: 0 20px 0 15px;
+	padding: 0 20px 0 10px;
 }
-#block-system-main-menu li a.active {
+#block-system-main-menu li a.active,
+#block-system-main-menu li a:hover {
     color: #FFF;
     font-weight: normal;
     letter-spacing: 3px;
