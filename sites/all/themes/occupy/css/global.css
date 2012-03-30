@@ -77,11 +77,11 @@ ul li.leaf {
     padding: 50px 0 0 0px;
     text-align: left;
 }
-#block-system-main-menu .active-trail {
+/*#block-system-main-menu .active-trail {
 	list-style-image: url(/sites/all/themes/files/active-menu-icon.png);
 	float: left;
 	margin: 0;
-}
+}*/
 #block-system-main-menu li a, #block-system-main-menu li a:hover, #block-system-main-menu li a:link {
     color: #FECD48;
     font-family: 'LeagueGothicRegular';
@@ -90,10 +90,10 @@ ul li.leaf {
     text-decoration: none;
     text-transform: uppercase;
     float: left;
-	padding: 0 20px 0 20px;
+	padding: 0 20px 0 15px;
 }
 #block-system-main-menu li a.active {
-    color: #FECD48;
+    color: #FFF;
     font-weight: normal;
     letter-spacing: 3px;
     text-decoration: none;
