@@ -59,13 +59,13 @@ function fontyourface_add_theme_info_fonts() {
             $font_url = $provider_info['base_path'] . trim($declaration);
             $font = fontyourface_load_font_by_url($font_url);
 
-            if (isset($font->enabled) && !$font->enabled) {
+            if (!empty($font)) {
 
               $font->css_selector = '<none>';                
               fontyourface_font_registry($font);
 
             } // if
-            elseif (empty($font)) {
+            else {
 
               if (fontyourface_count_fonts($font_provider) > 0) {
 
@@ -78,7 +78,7 @@ function fontyourface_add_theme_info_fonts() {
 
               } // else
 
-            } // elseif
+            } // else
 
           } // if
 
@@ -681,6 +681,8 @@ function fontyourface_ajax_render_alter(&$commands) {
 
   // Add AJAX command to prepend the CSS to <head>.
 
-  $commands[] = ajax_command_prepend('head', $vars['styles']);
+  if (isset($vars['styles'])) {
+    $commands[] = ajax_command_prepend('head', $vars['styles']);
+  } // if
 
 } // fontyourface_ajax_render_alter
