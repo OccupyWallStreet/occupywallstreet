@@ -40,7 +40,13 @@ class quicktabs_style_plugin extends views_plugin_style {
     );
 
     if (isset($form['grouping'])) {
-      $options = $form['grouping']['#options'];
+      $options = array();
+      foreach (element_children($form['grouping']) as $key => $value) {
+        if (!empty($form['grouping'][$key]['field']['#options']) && is_array($form['grouping'][$key]['field']['#options'])) {
+          $options = array_merge($options, $form['grouping'][$key]['field']['#options']);
+        }
+      }
+
       unset($options['']);
       $form['tab_title_field'] = array(
         '#type' => 'select',
@@ -100,11 +106,14 @@ class quicktabs_style_plugin extends views_plugin_style {
 
       // If grouped, we'll be using the group title for each tab.
       if ($this->options['grouping']) {
+
         // Remove labels from titles.
-        $grouping_field = $this->options['grouping'];
-        if ($this->view->field[$grouping_field]->options['label']) {
-          $title = str_replace($this->view->field[$grouping_field]->options['label'] . ': ', '', $title);
+        foreach (element_children($this->options['grouping']) as $key => $value) {
+          if (!empty($this->view->field[$this->options['grouping'][$key]['field']]->options['label'])) {
+            $title = str_replace($this->view->field[$this->options['grouping'][$key]['field']]->options['label'] . ': ', '', $title);
+          }
         }
+
         $contents = '';
         foreach ($rows as $row) {
           $contents .= '<div class="quicktabs-views-group">' . $row . '</div>';
@@ -150,7 +159,7 @@ class quicktabs_style_plugin extends views_plugin_style {
     }
 
     unset($view->row_index);
-    
+
     return $output;
   }
 
