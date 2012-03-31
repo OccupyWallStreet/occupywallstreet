@@ -362,7 +362,7 @@ function theme_multiblock_general($variables) {
     }
     $rows[] = array(
       check_plain($row->title),
-      $title,
+      check_plain($title),
       $row->module,
       array('data' => theme('image', array(
         'path' => $mb_enabled,
