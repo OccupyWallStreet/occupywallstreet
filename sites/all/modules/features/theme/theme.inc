@@ -89,15 +89,24 @@ function template_preprocess_features_admin_components(&$vars) {
 function theme_features_module_status($vars) {
   switch ($vars['status']) {
     case FEATURES_MODULE_ENABLED:
-      $text = !empty($vars['module']) ? $vars['module'] : t('Enabled');
-      return "<span class='admin-enabled'>{$text}</span>";
+      $text_status = t('Enabled');
+      $class = 'admin-enabled';
+      break;
     case FEATURES_MODULE_DISABLED:
-      $text = !empty($vars['module']) ? $vars['module'] : t('Disabled');
-      return "<span class='admin-disabled'>{$text}</span>";
+      $text_status = t('Disabled');
+      $class = 'admin-disabled';
+      break;
     case FEATURES_MODULE_MISSING:
-      $text = !empty($vars['module']) ? $vars['module'] : t('Missing');
-      return "<span class='admin-missing'>{$text}</span>";
+      $text_status = t('Missing');
+      $class = 'admin-missing';
+      break;
+    case FEATURES_MODULE_CONFLICT:
+      $text_status = t('Enabled');
+      $class = 'admin-conflict';
+      break;
   }
+  $text = !empty($vars['module']) ? $vars['module'] . ' (' . $text_status . ')' : $text_status;
+  return "<span class=\"$class\">$text</span>";
 }
 
 /**
@@ -112,6 +121,7 @@ function theme_features_storage_link($vars) {
     FEATURES_REBUILDABLE => 'admin-rebuilding',
     FEATURES_CONFLICT => 'admin-conflict',
     FEATURES_DISABLED => 'admin-disabled',
+    FEATURES_CHECKING => 'admin-loading',
   );
   $default_text = array(
     FEATURES_OVERRIDDEN => t('Overridden'),
@@ -121,6 +131,7 @@ function theme_features_storage_link($vars) {
     FEATURES_REBUILDABLE => t('Rebuilding'),
     FEATURES_CONFLICT => t('Conflict'),
     FEATURES_DISABLED => t('Disabled'),
+    FEATURES_CHECKING => t('Checking...'),
   );
   $text = isset($vars['text']) ? $vars['text'] : $default_text[$vars['storage']];
   if ($vars['path']) {
