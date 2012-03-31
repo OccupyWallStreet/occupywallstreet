@@ -1,19 +1,28 @@
-<?php // $Id: imagefield.inc,v 1.3 2009/03/02 18:14:07 vauxia Exp $
+<?php
 
+$plugin = array(
+  'title' => t("Image/exif"),
+  'description' => t('Get a location from an image that was taken with a GPS enabled phone or camera'),
+  'callback' => 'geocoder_exif',
+  'field_types' => array('file', 'image'),
+  'field_callback' => 'geocoder_exif_field',
+);
 
-if (function_exists('exif_read_data')) {
-	$plugin = array(
-	  'title' => t("Image/exif"),
-	  'description' => t('Get a location from an image that was taken with a GPS enabled phone or camera'),
-	  'callback' => 'geocoder_exif',
-	  'field_types' => array('file','image'),
-	  'field_callback' => 'geocoder_exif_field',
-	);
-}
-
-function geocoder_exif($filepath) {
-	geocoder_load_geophp();
-  if ($data = exif_read_data($filepath)) {
+function geocoder_exif($url, $options = array()) {
+  // Invoke hook_file_download to check permissions
+  // We are essentially duplicating the logic found in file.inc file_download()
+  foreach (module_implements('file_download') as $module) {
+    $function = $module . '_file_download';
+    $result = $function($url);
+    if ($result == -1) {
+      drupal_set_message(t('You do not have permission to access this file'), 'error');
+      return FALSE;
+    }
+  }
+  
+  // The user has permission to access the file. Geocode it.
+  geophp_load();
+  if ($data = exif_read_data($url)) {
     if (!isset($data['GPSLatitudeRef'])) return FALSE;
     $lat = geocoder_exif_from($data['GPSLatitudeRef'], $data['GPSLatitude']);
     $lon = geocoder_exif_from($data['GPSLongitudeRef'], $data['GPSLongitude']);
