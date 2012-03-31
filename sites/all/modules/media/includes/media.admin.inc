@@ -61,22 +61,22 @@ function media_admin($form, $form_state) {
   $form['switch'] = media_admin_display_switch(array('active display' => $display));
 
   // Build the 'Media operations' form.
+  $options = array();
+  foreach (module_invoke_all('media_operations') as $operation => $array) {
+    $options[$operation] = $array['label'];
+  }
   $form['options'] = array(
     '#type' => 'fieldset',
     '#title' => t('Operations'),
     '#prefix' => '<div class="container-inline">',
     '#suffix' => '</div>',
+    '#access' => !empty($options),
   );
-  $options = array();
-  foreach (module_invoke_all('media_operations') as $operation => $array) {
-    $options[$operation] = $array['label'];
-  }
   $form['options']['operation'] = array(
     '#type' => 'select',
     '#options' => $options,
     '#default_value' => 'delete',
   );
-  $options = array();
   $form['options']['submit'] = array(
     '#type' => 'submit',
     '#value' => t('Submit'),
@@ -86,7 +86,7 @@ function media_admin($form, $form_state) {
 
   include_once $types[$display]['file'];
 
-  $form['admin'] = $types[$display]['callback']();
+  $form['admin'] = $types[$display]['callback']($form);
 
   return $form;
 }
@@ -95,7 +95,7 @@ function media_admin($form, $form_state) {
 /**
  * Form builder: Builds the media list administration overview.
  */
-function media_admin_list() {
+function media_admin_list(&$parent_form) {
   // @todo Change to media_variable_get('admin_pager_limit') for consistency
   //   with browser_pager_limit?
   $limit = variable_get('media_admin_limit', 50);
@@ -112,29 +112,36 @@ function media_admin_list() {
 
   $query = db_select('file_managed', 'f')->extend('PagerDefault')->extend('TableSort');
   $query->join('users', 'u', 'f.uid = u.uid');
-
-  $query
-    ->fields('f')
-    ->fields('u', array('name'))
-    ->condition('f.status', FILE_STATUS_PERMANENT)
-    ->limit($limit)
-    ->orderByHeader($header);
+  $query->fields('f', array('fid'));
+  $query->fields('u', array('uid'));
+  $query->condition('f.status', FILE_STATUS_PERMANENT);
+  $query->limit($limit);
+  $query->orderByHeader($header);
 
   foreach (array_keys(media_get_hidden_stream_wrappers()) as $name) {
     $query->condition('f.uri', $name . '%', 'NOT LIKE');
   }
-  $result = $query->execute();
+
+  // Result array keys are file IDs, values are the file owner's UIDs.
+  $result = $query->execute()->fetchAllKeyed();
+
+  // Hide the operations form if there are no files to operate on.
+  $parent_form['options']['#access'] &= !empty($result);
+
+  // Load all the file entities.
+  $files = $form['#files'] = file_load_multiple(array_keys($result));
+
+  // Load all the file owner user entities to display usernames.
+  $accounts = $form['#accounts'] = user_load_multiple(array_unique($result));
 
   $destination = drupal_get_destination();
-  $files = array();
   $options = array();
-
-  foreach ($result as $file) {
+  foreach ($files as $file) {
     $options[$file->fid] = array(
       'title' => theme('media_link', array('file' => $file)),
       'type' =>  check_plain($file->filemime),
       'size' => format_size($file->filesize),
-      'author' => theme('username', array('account' => $file)),
+      'author' => theme('username', array('account' => $accounts[$file->uid])),
       'timestamp' => format_date($file->timestamp, 'short'),
     );
     $options[$file->fid]['operations'] = l(t('Edit'), 'media/' . $file->fid . '/edit', array('query' => $destination));
@@ -155,44 +162,54 @@ function media_admin_list() {
 /**
  * Form builder: Builds the media thumbnails administration overview.
  */
-function media_admin_thumbnails() {
+function media_admin_thumbnails(&$parent_form) {
   // @todo Change to media_variable_get('admin_pager_limit') for consistency
   //   with browser_pager_limit?
   $limit = variable_get('media_admin_limit', 50);
 
-  $query = new EntityFieldQuery();
-  $query->pager($limit);
-  $query->entityCondition('entity_type', 'file');
-  $query->propertyCondition('status', FILE_STATUS_PERMANENT);
-  $query->propertyOrderBy('timestamp', 'DESC');
+  $query = db_select('file_managed', 'f')->extend('PagerDefault');
+  $query->fields('f', array('fid'));
+  $query->condition('f.status', FILE_STATUS_PERMANENT);
+  $query->limit($limit);
+  $query->orderBy('f.timestamp', 'DESC');
 
   foreach (array_keys(media_get_hidden_stream_wrappers()) as $name) {
-    $query->propertyCondition('uri', $name . '%', 'NOT LIKE');
+    $query->condition('f.uri', $name . '%', 'NOT LIKE');
   }
 
-  $result = $query->execute();
-  $files = file_load_multiple(array_keys($result['file']));
+  $fids = $query->execute()->fetchCol();
+  $files = file_load_multiple($fids);
+  $files = array();
 
-  $destination = drupal_get_destination();
-  $rows = array();
-  $options = array();
-  $form['files'] = array(
-    '#tree' => TRUE,
-    '#prefix' => '<div class="media-display-thumbnails media-clear clearfix"><ul class="media-list-thumbnails">',
-    '#suffix' => '</ul></div>',
-  );
+  // Hide the operations form if there are no files to operate on.
+  $parent_form['options']['#access'] &= !empty($files);
 
-  foreach ($files as $file) {
-    $preview = media_get_thumbnail_preview($file, TRUE);
-    $form['files'][$file->fid] = array(
-      '#type' => 'checkbox',
-      '#title' => '',
-      '#prefix' => '<li>' . drupal_render($preview),
-      '#suffix' => '</li>',
+  if (empty($files)) {
+    // Display empty text if there are no files.
+    $form['files'] = array(
+      '#markup' => '<p>' . t('No media available.') . '</p>',
     );
   }
+  else {
+    $form['files'] = array(
+      '#tree' => TRUE,
+      '#prefix' => '<div class="media-display-thumbnails media-clear clearfix"><ul class="media-list-thumbnails">',
+      '#suffix' => '</ul></div>',
+    );
 
-  $form['pager'] = array('#markup' => theme('pager', array('tags' => NULL)));
+    foreach ($files as $file) {
+      $preview = media_get_thumbnail_preview($file, TRUE);
+      if (!isset($preview['#file'])) { dpm($file); }
+      $form['files'][$file->fid] = array(
+        '#type' => 'checkbox',
+        '#title' => '',
+        '#prefix' => '<li>' . drupal_render($preview),
+        '#suffix' => '</li>',
+      );
+    }
+
+    $form['pager'] = array('#markup' => theme('pager', array('tags' => NULL)));
+  }
 
   return $form;
 }
@@ -427,7 +444,7 @@ function media_import($form, &$form_state) {
     $form['pattern'] = array(
       '#type' => 'textfield',
       '#title' => t('Pattern'),
-      '#description' => 'Only files matching this pattern will be imported.',
+      '#description' => 'Only files matching this pattern will be imported. For example, to import all jpg and gif files, the pattern would be <em>*.jpg|*.gif</em>.',
     );
 
     $form['actions'] = array('#type' => 'actions');
@@ -567,7 +584,7 @@ function media_admin_config_browser($form, &$form_state) {
 
   $form[media_variable_name('file_extensions')] = array(
     '#type' => 'textfield',
-    '#title' => 'Allowed file extensions',
+    '#title' => t('Allowed file extensions'),
     '#default_value' => media_variable_get('file_extensions'),
     '#description' => t('File extensions which are accepted in the media browser.  Use spaces to separate (e.g. "jpg gif pdf doc"). <br/><em>Note that this can be overriden on a per-field basis when creating multimedia asset fields and files of certain extensions cannot be embedded at this time.</em>'),
   );

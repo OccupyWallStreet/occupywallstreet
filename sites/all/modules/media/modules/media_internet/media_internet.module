@@ -1,21 +1,14 @@
 <?php
 
 /**
- * Implements hook_media_browser_plugin_info().
+ * Implements hook_hook_info().
  */
-function media_internet_media_browser_plugin_info() {
-  $plugins = array();
-  /*
-   @todo: Coming soon.
-   'search' => array(
-   ),
-  */
-  if (user_access('administer media') || user_access('add media from remote sources')) {
-    $plugins['media_internet'] = array(
-      '#weight' => -10,
-    );
-  }
-  return $plugins;
+function media_internet_hook_info() {
+  $hooks = array(
+    'media_internet_providers',
+  );
+
+  return array_fill_keys($hooks, array('group' => 'media'));
 }
 
 /**
@@ -28,33 +21,6 @@ function media_internet_permission() {
       'description' => t('Add media from remote sources such as other websites, YouTube, etc'),
     ),
   );
-}
-
-/**
- * Implements hook_media_browser_plugin_view().
- */
-function media_internet_media_browser_plugin_view($plugin_name, $params) {
-  $path = drupal_get_path('module', 'media');
-
-  $types = isset($params['types']) ? $params['types'] : array();
-  $multiselect = isset($params['multiselect']) ? $params['multiselect'] : FALSE;
-
-  $redirect = array('media/browser', array('query' => array('render' => 'media-popup')));
-  switch ($plugin_name) {
-    case 'media_internet':
-      // @todo: implement the multiselect argument here.
-      $from_web_form = drupal_get_form('media_internet_add',  $types, $multiselect);
-      return array(
-        '#title' => t('Web'),
-        'form' => array($from_web_form),
-        '#attached' => array(
-          //'js' => array($path . '/js/plugins/media.fromurl.js'),
-        ),
-      );
-      break;
-  }
-
-  return array();
 }
 
 /**
@@ -198,7 +164,7 @@ function media_internet_add_submit($form, &$form_state) {
   }
 
   if (!$file->fid) {
-    form_set_error('url', 'Unknown error: unable to add file, please check URL / Embed code and try again ' . $embed_code);
+    form_set_error('url', t('The file %file could not be saved. An unknown error has occurred.', array('%file' => $embed_code)));
     return;
   }
 
@@ -213,20 +179,30 @@ function media_internet_add_submit($form, &$form_state) {
  * and store it as a file object in file_managed.
  */
 function media_internet_get_providers() {
-  $providers = &drupal_static(__FUNCTION__, array());
-  if (!$providers) {
-    foreach (module_implements('media_internet_providers') as $module) {
-      foreach (module_invoke($module, 'media_internet_providers') as $key => $provider) {
-        // Store the module here too for convinience.
-        $providers[$key] = $provider;
-        $providers[$key]['module'] = $module;
-        if (!isset($providers[$key]['weight'])) {
-          $providers[$key]['weight'] = 0;
+  $providers = &drupal_static(__FUNCTION__);
+
+  if (!isset($providers)) {
+    $cid = 'media:internet:providers';
+    if ($cache = cache_get($cid)) {
+      $providers = $cache->data;
+    }
+    else {
+      $providers = array();
+      foreach (module_implements('media_internet_providers') as $module) {
+        foreach (module_invoke($module, 'media_internet_providers') as $key => $provider) {
+          // Store the module here too for convinience.
+          $providers[$key] = $provider;
+          $providers[$key]['module'] = $module;
+          if (!isset($providers[$key]['weight'])) {
+            $providers[$key]['weight'] = 0;
+          }
         }
       }
+      uasort($providers, 'drupal_sort_weight');
+      cache_set($cid, $providers);
     }
-    uasort($providers, 'drupal_sort_weight');
   }
+
   return $providers;
 }
 
@@ -248,23 +224,6 @@ function media_internet_get_provider($embed_string) {
     }
   }
   throw new MediaInternetNoHandlerException(t('Unable to handle the provided embed string or URL.'));
-}
-
-/**
- * Implements hook_media_internet_providers();
- *
- * Provides a very basic handler which coppies files from remote sources to the
- * local files directory.
- */
-function media_internet_media_internet_providers() {
-  return array(
-    'MediaInternetFileHandler' => array(
-      'title' => 'Files',
-      'hidden' => TRUE,
-      // Make it go last.
-      'weight' => 10000,
-    ),
-  );
 }
 
 class MediaInternetFileHandler extends MediaInternetBaseHandler {

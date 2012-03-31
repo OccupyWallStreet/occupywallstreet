@@ -24,12 +24,11 @@ class MediaInternetYouTubeHandler extends MediaInternetBaseHandler {
 
   public function valid_id($id) {
     $url = 'http://gdata.youtube.com/feeds/api/videos/'. $id;
-    $headers = get_headers($url);
-    $valid = strpos($headers[0], '200') !== FALSE;
-    if (!$valid) {
+    $response = drupal_http_request($url, array('method' => 'HEAD'));
+    if ($response->code != 200) {
       throw new MediaInternetValidationException(t('The YouTube video ID is invalid or the video was deleted.'));
     }
-    return $valid;
+    return TRUE;
   }
 
   public function claim($embedCode) {
@@ -38,19 +37,15 @@ class MediaInternetYouTubeHandler extends MediaInternetBaseHandler {
     }
   }
 
-  public function save() {
-    $file = $this->getFileObject();
-    // If a user enters a duplicate YouTube URL, the object will be saved again.
-    // Set the timestamp to the current time, so that the media item shows up
-    // at the top of the media library, where they would expect to see it.
-    $file->timestamp = REQUEST_TIME;
-    file_save($file);
-    return $file;
-  }
-
   public function getFileObject() {
     $uri = $this->parse($this->embedCode);
-    return file_uri_to_object($uri, TRUE);
+    $file = file_uri_to_object($uri, TRUE);
+
+    if (empty($file->fid) && $info = $this->getOEmbed()) {
+      $file->filename = truncate_utf8($info['title'], 255);
+    }
+
+    return $file;
   }
 
   /**

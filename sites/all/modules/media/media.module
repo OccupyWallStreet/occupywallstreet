@@ -29,6 +29,27 @@ require_once (dirname(__FILE__) . '/includes/media.filter.inc');
 /* ***************************************** */
 
 /**
+ * Implements hook_hook_info().
+ */
+function media_hook_info() {
+  $hooks = array(
+    'media_display_types',
+    'media_display_types_alter',
+    'media_parse',
+    'media_operations',
+    'media_browser_plugin_info',
+    'media_browser_plugin_view',
+    'media_browser_plugins_alter',
+    'media_browser_params_alter',
+    'media_wysiwyg_allowed_view_modes_alter',
+    'media_format_form_prepare_alter',
+    'media_token_to_markup_alter',
+  );
+
+  return array_fill_keys($hooks, array('group' => 'media'));
+}
+
+/**
  * Implements hook_help().
  */
 function media_help($path, $arg) {
@@ -250,7 +271,7 @@ function media_admin_paths() {
 }
 
 /**
- * Implement hook_permission().
+ * Implements hook_permission().
  */
 function media_permission() {
   return array(
@@ -442,60 +463,6 @@ function media_element_info_alter(&$types) {
 }
 
 /**
- * Implements hook_media_display_types().
- *
- * This is used to display media in different ways on the admin section.
- * Perhaps should be merged in with the browser display.
- */
-function media_media_display_types() {
-  $path = drupal_get_path('module', 'media');
-  $display_types = array();
-
-  $display_types['list'] = array(
-    'title' => t('List'),
-    'description' => t('Display as a list.'),
-    'icon' => $path . '/images/display-list.png',
-    'icon_active' => $path . '/images/display-list-active.png',
-    'callback' => 'media_admin_list',
-    'file' => drupal_get_path('module', 'media') . '/includes/media.admin.inc',
-  );
-
-  $display_types['thumbnails'] = array(
-    'title' => t('Thumbnails'),
-    'description' => t('Display as thumbnails.'),
-    'icon' => $path . '/images/display-thumbnails.png',
-    'icon_active' => $path . '/images/display-thumbnails-active.png',
-    'callback' => 'media_admin_thumbnails',
-    'file' => drupal_get_path('module', 'media') . '/includes/media.admin.inc',
-  );
-
-  return $display_types;
-}
-
-/**
- * Implements hook_media_operations().
- */
-function media_media_operations() {
-  $operations = array(
-    'delete' => array(
-      'label' => t('Delete'),
-      'callback' => NULL,
-    ),
-    'edit' => array(
-      'label' => t('Edit'),
-      'callback' => NULL,
-      'redirect' => 'media/%fids/multiedit'
-    ),
-  );
-
-  if (!module_exists('multiform')) {
-    // If the multiform module is not installed, do not show this option.
-    unset($operations['edit']);
-  }
-  return $operations;
-}
-
-/**
  * Implements hook_forms().
  */
 function media_forms($form_id, $args) {
@@ -539,6 +506,7 @@ function media_form_field_ui_field_edit_form_alter(&$form, &$form_state) {
     $form['field']['settings']['display_default']['#access'] = FALSE;
     $form['instance']['settings']['description_field']['#access'] = FALSE;
     $form['instance']['settings']['file_extensions']['#title'] = t('Allowed file extensions for uploaded files');
+    $form['instance']['settings']['file_extensions']['#maxlength'] = 255;
   }
 
   // On image fields using the media widget we remove the alt/title fields
@@ -546,7 +514,19 @@ function media_form_field_ui_field_edit_form_alter(&$form, &$form_state) {
     $form['instance']['settings']['alt_field']['#access'] = FALSE;
     $form['instance']['settings']['title_field']['#access'] = FALSE;
     $form['instance']['settings']['file_extensions']['#title'] = t('Allowed file extensions for uploaded files');
+    // Do not increase maxlength of file extensions for image fields, since
+    // presumably they will not need a long list of extensions.
   }
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function media_form_wysiwyg_profile_form_alter(&$form, &$form_state) {
+  // Add warnings if the media filter is disabled for the WYSIWYG's text format.
+  $form['buttons']['drupal']['media']['#element_validate'][] = 'media_wysiwyg_button_element_validate';
+  $form['buttons']['drupal']['media']['#after_build'][] = 'media_wysiwyg_button_element_validate';
+  form_load_include($form_state, 'inc', 'media', 'wysiwyg_plugins/media');
 }
 
 /* ***************************************** */
@@ -677,10 +657,11 @@ if (!function_exists('file_uri_to_object')) {
  */
 function media_library() {
   $path = drupal_get_path('module', 'media');
+  $info = system_get_info('module', 'media');
 
   $common = array(
     'website' => 'http://drupal.org/project/media',
-    'version' => '7.x',
+    'version' => !empty($info['version']) ? $info['version'] : '7.x-1.x',
   );
 
   /**
@@ -1035,7 +1016,7 @@ function media_element_validate(&$element, &$form_state) {
  */
 function media_filter_info() {
   $filters['media_filter'] = array(
-    'title' => t('Converts Media tags to Markup'),
+    'title' => t('Convert Media tags to markup'),
     'description' => t('This filter will convert [[{type:media... ]] tags into markup.'),
     'process callback' => 'media_filter',
     'weight' => 2,
@@ -1044,7 +1025,7 @@ function media_filter_info() {
 
   // If the WYSIWYG module is enabled, add additional help.
   if (module_exists('wysiwyg')) {
-    $filters['media_filter']['description'] .= ' ' . t('This must be enabled for the WYSIWYG integration to work correctly with this text filter.');
+    $filters['media_filter']['description'] .= ' ' . t('This must be enabled for the Media WYSIWYG integration to work with this input format.');
   }
 
   return $filters;
@@ -1073,6 +1054,11 @@ function _media_save_file_permenently(&$file) {
  *   Renderable array.
  */
 function media_get_thumbnail_preview($file, $link = NULL) {
+  // If a file has an invalid type, allow file_view_file() to work.
+  if (!file_info_file_types($file->type)) {
+    $file->type = media_get_type($file);
+  }
+
   $preview = file_view_file($file, 'media_preview');
   $preview['#show_names'] = TRUE;
   $preview['#add_link'] = $link;
@@ -1140,6 +1126,23 @@ function media_ctools_plugin_api($owner, $api) {
  */
 function media_get_hidden_stream_wrappers() {
   return array_diff_key(file_get_stream_wrappers(STREAM_WRAPPERS_ALL), file_get_stream_wrappers(STREAM_WRAPPERS_VISIBLE));
+}
+
+/**
+ * Helper function to get a list of local stream wrappers.
+ */
+function media_get_local_stream_wrappers() {
+  return file_get_stream_wrappers(STREAM_WRAPPERS_LOCAL_NORMAL);
+}
+
+/**
+ * Helper function to get a list of remote stream wrappers.
+ */
+function media_get_remote_stream_wrappers() {
+  $wrappers = file_get_stream_wrappers();
+  $wrappers = array_diff_key($wrappers, file_get_stream_wrappers(STREAM_WRAPPERS_LOCAL_NORMAL));
+  $wrappers = array_diff_key($wrappers, file_get_stream_wrappers(STREAM_WRAPPERS_LOCAL_HIDDEN));
+  return $wrappers;
 }
 
 /**

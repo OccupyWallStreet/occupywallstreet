@@ -208,7 +208,7 @@ function media_add_upload_validate($form, &$form_state) {
     form_set_error('upload', t("No file appears to have been selected."));
   }
   elseif ($file === FALSE) {
-    form_set_error('upload', t("Failed to upload the file."));
+    form_set_error('upload', t('File upload error.'));
   }
   else {
     $form_state['values']['upload'] = $file;
@@ -296,8 +296,8 @@ function media_add_upload_multiple_submit($form, &$form_state) {
       $saved_files[] = $file;
     }
     else {
-      // @todo: move this to element validate or something and clean up t().
-      form_set_error('pud', "Upload of {$uploaded_file['name']} failed");
+      // @todo: move this to element validate or something.
+      form_set_error('pud', t('The specified file %name could not be uploaded.', array('%name' => $uploaded_file['name'])));
     }
   }
   // Get a list of fids to pass back.

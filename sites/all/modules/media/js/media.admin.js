@@ -39,12 +39,10 @@ Drupal.behaviors.mediaAdmin = {
         return false;
       }, options);
     });
+
     $('ul.action-links', context).prepend($('<li></li>').append($launcherLink));
 
-    if ($('form.media-list-operation', context).length != 0) {
-      return;
-    }
-    if ($('body.page-admin-content-media-thumbnails').length != 0) {
+    if ($('.media-display-thumbnails').length) {
       // Implements 'select all/none' for thumbnail view.
       // @TODO: Support grabbing more than one page of thumbnails.
       var allLink = $('<a href="#">' + Drupal.t('all') + '</a>')

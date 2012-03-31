@@ -65,3 +65,21 @@ function media_include_browser_js() {
   $settings = array('blacklist' => array('src', 'fid', 'view_mode', 'format'));
   drupal_add_js(array('media' => $settings), 'setting');
 }
+
+/**
+ * Element validate callback for the media WYSIWYG button.
+ */
+function media_wysiwyg_button_element_validate($element, &$form_state) {
+  if (!empty($element['#value'])) {
+    $format = filter_format_load($form_state['build_info']['args'][0]->format);
+    $filters = filter_list_format($format->format);
+    if (empty($filters['media_filter']->status)) {
+      form_error($element, t('The <em>Convert Media tags to markup</em> filter must be enabled for the <a href="@format-link">@format format</a> in order to use the Media browser WYSIWYG button.', array(
+        '@format-link' => url('admin/config/content/formats/' . $format->format, array('query' => array('destination' => $_GET['q']))),
+        '@format' => $format->name,
+      )));
+    }
+  }
+
+  return $element;
+}

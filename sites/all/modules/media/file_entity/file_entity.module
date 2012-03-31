@@ -325,9 +325,18 @@ function file_entity_file_formatter_file_field_settings($form, &$form_state, $se
  * file_view_file() can try another formatter.
  */
 function file_entity_file_formatter_file_image_view($file, $display, $langcode) {
-  $scheme = file_uri_scheme($file->uri);
-  $local_wrappers = file_get_stream_wrappers(STREAM_WRAPPERS_LOCAL);
-  if (isset($local_wrappers[$scheme]) && strpos($file->filemime, 'image/') === 0 && $image = image_load($file->uri)) {
+  // Prevent PHP notices when trying to read empty files.
+  // @see http://drupal.org/node/681042
+  if (!filesize($file->uri)) {
+    return;
+  }
+
+  // Do not bother proceeding if this file does not have an image mime type.
+  if (strpos($file->filemime, 'image/') !== 0) {
+    return;
+  }
+
+  if (file_entity_file_is_local($file) && $image = image_load($file->uri)) {
     if (!empty($display['settings']['image_style'])) {
       $element = array(
         '#theme' => 'image_style',
@@ -424,8 +433,10 @@ function file_entity_file_mimetype_mapping_alter(&$mapping) {
   $new_mappings['mka'] = 'audio/x-matroska';
   $new_mappings['mkv'] = 'video/x-matroska';
 
-  // Add support for webp.
+  // Add support for weba, webm, and webp.
   // @todo Remove when http://drupal.org/node/1347624 is fixed in core.
+  $new_mappings['weba'] = 'audio/webm';
+  $new_mappings['webm'] = 'video/webm';
   $new_mappings['webp'] = 'image/webp';
 
   foreach ($new_mappings as $extension => $mime_type) {
@@ -438,4 +449,19 @@ function file_entity_file_mimetype_mapping_alter(&$mapping) {
     $index = array_search($mime_type, $mapping['mimetypes']);
     $mapping['extensions'][$extension] = $index;
   }
+}
+
+/**
+ * Check if a file entity is considered local or not.
+ *
+ * @param object $file
+ *   A file entity object from file_load().
+ *
+ * @return
+ *   TRUE if the file is using a local stream wrapper, or FALSE otherwise.
+ */
+function file_entity_file_is_local($file) {
+  $scheme = file_uri_scheme($file->uri);
+  $wrappers = file_get_stream_wrappers(STREAM_WRAPPERS_LOCAL);
+  return !empty($wrappers[$scheme]) && empty($wrappers[$scheme]['remote']);
 }
