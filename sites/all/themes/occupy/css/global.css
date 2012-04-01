@@ -895,7 +895,46 @@ padding: 5px 15px 0px 10px;
 	letter-spacing: 1px;
 	color: #F4922F;
 }
-
+.contact-background {
+	padding: 15px;
+	background-color: #EDEDED;
+	font-size: 0;
+	margin: 0 0 10px;
+}
+.contact-main-text {
+	font-size: 15px;
+	color: black;
+	font-weight: bolder;
+}
+.contact-text {
+	font-size: 13px;
+	color: black;
+	float: left;
+	padding: 4px 10px 0 0;
+}	
+.contact-icon {
+	background: url(/sites/all/themes/files/blackthing.png) no-repeat;
+	font-size: 0;
+	padding: 15px;
+	float: left;
+}
+.contact-bold-text {
+	font-size: 13px;
+	font-weight: bold;
+}
+.contact-phone-background {
+	background: #231F20;
+	padding: 10px;
+	font-size: 0;
+}
+.contact-number-text {
+	color: #FFCD05;
+	font-size: 15px;
+}
+.contact-phone-text {
+	color: #fff;
+	font-size: 13px;
+}
 /*---------------------------------POSTSCRIPT ZONE---------------------------------*/
 #zone-postscript-wrapper {
 	margin-top: 20px;
