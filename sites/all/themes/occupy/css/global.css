@@ -90,7 +90,7 @@ ul li.leaf {
     text-decoration: none;
     text-transform: uppercase;
     float: left;
-	padding: 0 20px 0 10px;
+	padding: 0 20px 0 9px;
 }
 #block-system-main-menu li a.active,
 #block-system-main-menu li a:hover {
@@ -303,13 +303,13 @@ ul li.leaf {
 	padding: 8px;
 }*/ 
 .quicktabs-tabs a {
-	padding: 4px 10px;
+	padding: 3px 25px;
 	background-color: #CFD1D2;
 	text-decoration: none;
 }
 #quicktabs-featured .active a:link {
 	background: url("/sites/all/themes/files/featured.png") no-repeat scroll center bottom transparent;
-	padding: 8px 15px;
+	padding: 9px 25px;
 	position: relative;
 	z-index: 999;
 }
@@ -422,14 +422,14 @@ ul.quicktabs-tabs li {
     color: #000000 !important;
     margin: 0;
     padding: 10px 10px 0;
-    width: 85.5%;
+    width: 85.6%;
 }
 .stories-block-date a:visited {
     display: block;
     background-color: #666766;
     color: #FFFFFF;
     padding: 10px 10px 0;
-    width: 85.5%;
+    width: 85.6%;
 }
 .stories-block-title {
     display: block;
@@ -577,7 +577,10 @@ ul.quicktabs-tabs li {
 }
 .view-nodequeue-3 h2 {
 	margin-bottom: 0;
+	padding: 0 10px 0 0;
+	line-height: .8em;
 }
+read
 .view-nodequeue-3 p {
 	margin: 0 100px 0 0;
 }
