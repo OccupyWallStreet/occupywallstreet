@@ -158,6 +158,13 @@ class date_views_plugin_pager extends views_plugin_pager {
           // work correctly if we are swapping in a new value from the pager.
           $argument->is_default = FALSE;
         }
+
+        // The pager value might move us into a forbidden range, so test it.
+        if ($this->date_forbid($argument)) {
+          $this->view->build_info['fail'] = TRUE;
+          return;
+        }
+
         if (empty($this->view->date_info)) $this->view->date_info = new stdClass();
         $this->view->date_info->granularity = $argument->date_handler->granularity;
         $format = $this->view->date_info->granularity == 'week' ? DATE_FORMAT_DATETIME : $argument->sql_format;
@@ -204,6 +211,19 @@ class date_views_plugin_pager extends views_plugin_pager {
       }
     }
   }
+
+  /**
+   * Add a callback to determine if we have moved outside the valid date range for this argument.
+   */
+  function date_forbid($argument) {
+    // See if we're outside the allowed date range for our argument.
+    $limit = date_range_years($argument->options['year_range']);
+    if (date_format($argument->min_date, 'Y') < $limit[0] || date_format($argument->max_date, 'Y') > $limit[1]) {
+      return TRUE;
+    }
+    return FALSE;
+  }
+
 
   function render($input) {
     // This adds all of our template suggestions based upon the view name and display id.

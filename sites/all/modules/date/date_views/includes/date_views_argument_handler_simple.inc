@@ -29,6 +29,9 @@ class date_views_argument_handler_simple extends views_handler_argument_date {
       $this->date_handler->local_timezone = date_get_timezone($field['settings']['tz_handling']);
     }
     $this->date_handler->granularity = $this->options['granularity'];
+    // This value needs to be initialized so it exists even if the query doesn't run.
+    $this->date_handler->placeholders = array();
+
     $this->format = $this->date_handler->views_formats($this->date_handler->granularity, 'display');
     $this->sql_format = $this->date_handler->views_formats($this->date_handler->granularity, 'sql');
     // $this->arg_format is the format the parent date handler will use to create a default argument.
@@ -324,7 +327,7 @@ class date_views_argument_handler_simple extends views_handler_argument_date {
     // See if we're outside the allowed date range for our argument.
     if (date_format($this->min_date, 'Y') < $this->limit[0] || date_format($this->max_date, 'Y') > $this->limit[1]) {
       $this->forbid = TRUE;
-      $this->query->add_where_expression($group, "0=1", array());
+      $this->view->build_info['fail'] = TRUE;
       return TRUE;
     }
     return FALSE;
