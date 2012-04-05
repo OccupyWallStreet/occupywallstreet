@@ -1,8 +1,6 @@
-#webform-client-form-30 div.form-item,
 form div.newsletter-wrapper {
   position: relative;
 }
-#webform-client-form-30 label.infield,
 form div.newsletter-wrapper label.infield {
   position: absolute;
   top: 0;
