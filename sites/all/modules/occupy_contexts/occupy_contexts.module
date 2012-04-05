@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Occupy Contexts feature.
+ */
+
+include_once 'occupy_contexts.features.inc';
