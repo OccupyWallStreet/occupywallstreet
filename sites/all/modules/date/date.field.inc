@@ -26,6 +26,7 @@ function date_field_formatter_info() {
       'field types' => array('date', 'datestamp', 'datetime'),
       'settings' => array(
         'interval' => 2,
+        'interval_display' => 'time ago',
       ),
     ),
     'date_plain' => array(
@@ -70,8 +71,10 @@ function date_field_formatter_settings_summary($field, $instance, $view_mode) {
   switch ($formatter) {
     case 'format_interval':
       $summary = date_interval_formatter_settings_summary($field, $instance, $view_mode);
+      break;
     default:
       $summary = date_default_formatter_settings_summary($field, $instance, $view_mode);
+      break;
   }
   $context = array(
     'field' => $field,
@@ -122,6 +125,8 @@ function date_field_formatter_view($entity_type, $entity, $field, $instance, $la
     'attributes' => array(),
     'rdf_mapping' => array(),
     'add_rdf' => module_exists('rdf'),
+    'microdata' => array(),
+    'add_microdata' => module_exists('microdata'),
   );
 
   // If there is an RDf mapping for this date field, pass it down to the theme.
@@ -130,6 +135,11 @@ function date_field_formatter_view($entity_type, $entity, $field, $instance, $la
     if (!empty($entity->rdf_mapping[$field['field_name']])) {
       $variables['rdf_mapping'] = $rdf_mapping = $entity->rdf_mapping[$field['field_name']];
     }
+  }
+  // If Microdata is enabled, pass the microdata attributes for this field down
+  // to the theme.
+  if ($variables['add_microdata'] && isset($entity->microdata[$field['field_name']])) {
+    $variables['microdata'] = $microdata = $entity->microdata[$field['field_name']];
   }
   // See if we are only supposed to display a selected
   // item from multiple value date fields.
@@ -373,40 +383,7 @@ function date_field_validate($entity_type, $entity, $field, $instance, $langcode
 /**
  * Implements hook_field_insert().
  */
-function date_field_insert($entity_type, $entity, $field, $instance, $langcode, &$items) {
-  date_field_update_helper($entity_type, $entity, $field, $instance, $langcode, $items);
-
-  $context = array(
-    'entity_type' => $entity_type,
-    'entity' => $entity,
-    'field' => $field,
-    'instance' => $instance,
-    'langcode' => $langcode,
-  );
-  drupal_alter('date_field_insert', $items, $context);
-}
-
-/**
- * Implements hook_field_update().
- */
-function date_field_update($entity_type, $entity, $field, $instance, $langcode, &$items) {
-  date_field_update_helper($entity_type, $entity, $field, $instance, $langcode, $items);
-
-  $context = array(
-    'entity_type' => $entity_type,
-    'entity' => $entity,
-    'field' => $field,
-    'instance' => $instance,
-    'langcode' => $langcode,
-  );
-  drupal_alter('date_field_update', $items, $context);
-}
-
-/**
- * A helper function for the code that needs to happen in both
- * inserts and updates.
- */
-function date_field_update_helper($entity_type, $entity, $field, $instance, $langcode, &$items) {
+function date_field_presave($entity_type, $entity, $field, $instance, $langcode, &$items) {
   $field_name = $field['field_name'];
 
   if (empty($items)) {
@@ -423,24 +400,34 @@ function date_field_update_helper($entity_type, $entity, $field, $instance, $lan
     }
   }
   $entity->{$field['field_name']}[$langcode] = $items;
+}
 
-  // @TODO Decide how to replace the date_limit_value() function.
-  /*
-  foreach ($values as $delta => $item) {
-    if (is_array($item)) {
-      // Special case for ISO dates which may have been given artificial values
-      // for some date parts to make them into valid dates.
-      if (!empty($item['value']) && $field['type'] == DATE_ISO) {
-        $items[$delta]['value'] = date_limit_value($items[$delta]['value'], date_granularity($field), $field['type']);
-        if ($field['settings']['todate']) {
-          $items[$delta]['value2'] = date_limit_value($items[$delta]['value2'], date_granularity($field), $field['type']);
-        }
-      }
-    }
-  }
-  */
+/**
+ * Implements hook_field_insert().
+ */
+function date_field_insert($entity_type, $entity, $field, $instance, $langcode, &$items) {
+  $context = array(
+    'entity_type' => $entity_type,
+    'entity' => $entity,
+    'field' => $field,
+    'instance' => $instance,
+    'langcode' => $langcode,
+  );
+  drupal_alter('date_field_insert', $items, $context);
+}
 
-  $entity->{$field['field_name']}[$langcode] = $items;
+/**
+ * Implements hook_field_update().
+ */
+function date_field_update($entity_type, $entity, $field, $instance, $langcode, &$items) {
+  $context = array(
+    'entity_type' => $entity_type,
+    'entity' => $entity,
+    'field' => $field,
+    'instance' => $instance,
+    'langcode' => $langcode,
+  );
+  drupal_alter('date_field_update', $items, $context);
 }
 
 /**
