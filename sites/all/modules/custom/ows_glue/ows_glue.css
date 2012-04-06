@@ -1,0 +1,11 @@
+#webform-client-form-30 div.form-item {
+  position: relative;
+}
+#webform-client-form-30 label.infield {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-weight: normal;
+  padding-top: 4px;
+  padding-left: 4px;
+}

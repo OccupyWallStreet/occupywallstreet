@@ -1,0 +1,14 @@
+form div.newsletter-wrapper {
+  position: relative;
+}
+form div.newsletter-wrapper label.infield {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-weight: normal;
+  padding-top: 4px;
+  padding-left: 4px;
+}
+form div.newsletter-wrapper label.infield {
+  left: 10px;
+}
