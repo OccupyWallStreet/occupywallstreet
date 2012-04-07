@@ -477,6 +477,17 @@ ul.quicktabs-tabs li {
     position: relative;
     z-index: 1;
 }
+.more-link {
+	text-align: left;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	color: black;
+	font-family: 'LeagueGothicRegular';
+	font-size: 20px;
+}
+.more-link a {
+	color: #000;
+}
 /*------------------------------------------STORIES BLOCK OF 4----------------------------------------*/
 .view-ows-stories-read-page- .stories-block-row {
 	display: block;
@@ -524,8 +535,8 @@ ul.quicktabs-tabs li {
 	padding: 20px 0 10px 0;
 	width: 30%;
 	border-bottom: 1px solid gray;
-	min-height: 160px;
-
+	min-height: 170px;
+	max-height: 170px;
 }
 .news-title-field a {
 	font-family: 'PTSansRegular';
