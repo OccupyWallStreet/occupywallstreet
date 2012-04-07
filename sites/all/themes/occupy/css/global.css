@@ -262,7 +262,8 @@ ul li.leaf {
 	position: relative;
 }
 .views-slideshow-cycle-main-frame-row-item h2 {
-	margin-bottom: 0;
+	margin: 10px 10px 0;
+	color: #FECD48;
 }
 .views-slideshow-cycle-main-frame-row-item p {
 	margin: 0 100px 0 0;
