@@ -266,7 +266,7 @@ ul li.leaf {
 	color: #FECD48;
 }
 .views-slideshow-cycle-main-frame-row-item p {
-	margin: 0 100px 0 0;
+	margin: 0 100px 0 15px;
 }
 #transparency {
 	position: absolute;
@@ -283,7 +283,7 @@ ul li.leaf {
 #mycontent {
 	position:absolute;
 	top: 195px;
-	left: 20px;
+	left: 0px;
 	z-index: 999;
 	color: #ffffff;
 	font-size: 14px;
