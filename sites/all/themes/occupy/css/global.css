@@ -303,19 +303,19 @@ ul li.leaf {
 	padding: 8px;
 }*/ 
 .quicktabs-tabs a {
-	padding: 3px 25px;
+	padding: 3px 15px 4px;
 	background-color: #CFD1D2;
 	text-decoration: none;
 }
 #quicktabs-featured .active a:link {
 	background: url("/sites/all/themes/files/featured.png") no-repeat scroll center bottom transparent;
-	padding: 9px 25px;
+	padding: 9px 15px;
 	position: relative;
 	z-index: 999;
 }
 #quicktabs-feeds .active a:link {
 	background: url("/sites/all/themes/files/featured.png") no-repeat scroll center bottom transparent;
-	padding: 8px;
+	padding: 4px 8px 9px;
 }
 ul.quicktabs-tabs {
     margin: 0;
