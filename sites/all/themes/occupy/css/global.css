@@ -175,21 +175,9 @@ ul li.leaf {
 	font-size: 0;
 	margin: 3px 0 0 5px;
 }
-#block-multiblock-1 textarea, 
-#block-multiblock-1 select, 
-#block-multiblock-1 input[type="date"],
-#block-multiblock-1 input[type="datetime"],
-#block-multiblock-1 input[type="datetime-local"],
-#block-multiblock-1 input[type="email"],
-#block-multiblock-1 input[type="month"],
-#block-multiblock-1 input[type="number"],
-#block-multiblock-1 input[type="password"],
-#block-multiblock-1 input[type="search"],
-#block-multiblock-1 input[type="tel"],
-#block-multiblock-1 input[type="text"],
-#block-multiblock-1 input[type="time"],
-#block-multiblock-1 input[type="url"],
-#block-multiblock-1 input[type="week"] {
+#block-block-32 textarea, 
+#block-block-32 select, 
+#block-block-32 input[type="text"] {
 	-webkit-appearance: none;
 	-moz-border-radius: 0;
 	-webkit-border-radius: 0;
