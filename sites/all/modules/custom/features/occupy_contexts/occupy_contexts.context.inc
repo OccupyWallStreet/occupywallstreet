@@ -30,25 +30,25 @@ function occupy_contexts_context_default_contexts() {
           'module' => 'views',
           'delta' => 'ows_locations_map-block',
           'region' => 'content',
-          'weight' => '-10',
+          'weight' => '-9',
         ),
         'views-ows_locations_map-block_1' => array(
           'module' => 'views',
           'delta' => 'ows_locations_map-block_1',
           'region' => 'sidebar_second',
-          'weight' => '-10',
+          'weight' => '-45',
         ),
         'block-30' => array(
           'module' => 'block',
           'delta' => 30,
           'region' => 'sidebar_second',
-          'weight' => '-9',
+          'weight' => '-44',
         ),
         'block-31' => array(
           'module' => 'block',
           'delta' => 31,
           'region' => 'sidebar_second',
-          'weight' => '-8',
+          'weight' => '-43',
         ),
         'block-25' => array(
           'module' => 'block',
@@ -175,7 +175,7 @@ function occupy_contexts_context_default_contexts() {
   $context->conditions = array(
     'path' => array(
       'values' => array(
-        'front' => 'front',
+        '<front>' => '<front>',
       ),
     ),
   );
@@ -439,9 +439,9 @@ function occupy_contexts_context_default_contexts() {
           'region' => 'footer_sixth',
           'weight' => '-10',
         ),
-        'multiblock-1' => array(
-          'module' => 'multiblock',
-          'delta' => 1,
+        'block-32' => array(
+          'module' => 'block',
+          'delta' => 32,
           'region' => 'footer_seventh',
           'weight' => '-10',
         ),

@@ -586,9 +586,8 @@ The <strong>General Assembly</strong> is an open, participatory, and horizontall
   /* Display: Block */
   $handler = $view->new_display('block', 'Block', 'block');
 
-  /* Display: Buttons */
-  $handler = $view->new_display('block', 'Buttons', 'block_1');
-  $handler->display->display_options['display_description'] = 'Location Map sidebar buttons on Contact Page';
+  /* Display: Block */
+  $handler = $view->new_display('block', 'Block', 'block_1');
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['defaults']['style_options'] = FALSE;
@@ -905,14 +904,13 @@ The <strong>General Assembly</strong> is an open, participatory, and horizontall
   $handler->display->display_options['fields']['timestamp']['alter']['absolute'] = 0;
   $handler->display->display_options['fields']['timestamp']['alter']['external'] = 0;
   $handler->display->display_options['fields']['timestamp']['alter']['replace_spaces'] = 0;
-  $handler->display->display_options['fields']['timestamp']['alter']['trim_whitespace'] = 1;
-  $handler->display->display_options['fields']['timestamp']['alter']['nl2br'] = 1;
+  $handler->display->display_options['fields']['timestamp']['alter']['trim_whitespace'] = 0;
+  $handler->display->display_options['fields']['timestamp']['alter']['nl2br'] = 0;
   $handler->display->display_options['fields']['timestamp']['alter']['word_boundary'] = 1;
   $handler->display->display_options['fields']['timestamp']['alter']['ellipsis'] = 1;
   $handler->display->display_options['fields']['timestamp']['alter']['more_link'] = 0;
-  $handler->display->display_options['fields']['timestamp']['alter']['strip_tags'] = 1;
+  $handler->display->display_options['fields']['timestamp']['alter']['strip_tags'] = 0;
   $handler->display->display_options['fields']['timestamp']['alter']['trim'] = 0;
-  $handler->display->display_options['fields']['timestamp']['alter']['preserve_tags'] = '<em><i>';
   $handler->display->display_options['fields']['timestamp']['alter']['html'] = 0;
   $handler->display->display_options['fields']['timestamp']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['timestamp']['element_default_classes'] = 1;
@@ -932,14 +930,14 @@ The <strong>General Assembly</strong> is an open, participatory, and horizontall
   $handler->display->display_options['fields']['description']['alter']['replace_spaces'] = 0;
   $handler->display->display_options['fields']['description']['alter']['trim_whitespace'] = 1;
   $handler->display->display_options['fields']['description']['alter']['nl2br'] = 1;
-  $handler->display->display_options['fields']['description']['alter']['max_length'] = '175';
-  $handler->display->display_options['fields']['description']['alter']['word_boundary'] = 0;
-  $handler->display->display_options['fields']['description']['alter']['ellipsis'] = 0;
-  $handler->display->display_options['fields']['description']['alter']['more_link'] = 1;
+  $handler->display->display_options['fields']['description']['alter']['max_length'] = '144';
+  $handler->display->display_options['fields']['description']['alter']['word_boundary'] = 1;
+  $handler->display->display_options['fields']['description']['alter']['ellipsis'] = 1;
+  $handler->display->display_options['fields']['description']['alter']['more_link'] = 0;
   $handler->display->display_options['fields']['description']['alter']['more_link_text'] = 'Read More';
   $handler->display->display_options['fields']['description']['alter']['strip_tags'] = 1;
   $handler->display->display_options['fields']['description']['alter']['trim'] = 1;
-  $handler->display->display_options['fields']['description']['alter']['preserve_tags'] = '<strong><b><em><i>';
+  $handler->display->display_options['fields']['description']['alter']['preserve_tags'] = '<b> <br> <strong> <em>';
   $handler->display->display_options['fields']['description']['alter']['html'] = 0;
   $handler->display->display_options['fields']['description']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['description']['element_default_classes'] = 1;
