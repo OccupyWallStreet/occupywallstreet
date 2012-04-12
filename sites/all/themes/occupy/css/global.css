@@ -145,6 +145,7 @@ ul li.leaf {
 #email-Primary {
 	float: left;
 	margin: 0;
+	width: 50%;
 }
 .newsletter-email-submit-button {
 	float: left;
@@ -522,6 +523,12 @@ ul.quicktabs-tabs li {
 	margin: 0;
 	padding: 0;
 }
+.node-blocks-background {
+	background: #231F20;
+	padding: 10px;
+	font-size: 0;
+	margin: 10px 0;
+}
 /*-------------------------------------------------NEWS-----------------------------------------------*/
 .front-news-view-title {
 	font-family: 'LeagueGothicRegular';
@@ -625,7 +632,6 @@ read
 	text-decoration: none;
 }
 /*-----------------------------------END READ PAGE---------------------------*/
-
 /*---------------------------------BEGIN LEARN PAGE--------------------------*/
 .view-ga-consense-docs .views-field-title a {
 	color: #000;
@@ -814,7 +820,7 @@ ul.quicktabs-tabs.quicktabs-style-arrows {
 	float: right;
 	margin: 0 0 10px 0;
 }
-/*-------------------------------EVENTS BLOCK-------------------------------------------*/
+/*----------------------------------------EVENTS BLOCK------------------------------------*/
 
 .view-ows-events {
 	/*padding: 15px*/;
@@ -982,6 +988,10 @@ padding: 5px 15px 0px 10px;
     padding: 0;
     width: 100%;
 }
+#section-footer p {
+	margin: 0;
+	padding: 0;
+}
 #zone-footer .block-title,
 #zone-footer .block-title a,
 #zone-footer .block-title a:link,
@@ -1044,4 +1054,9 @@ color: #000;
 */
 .block-ows-locations-map-block-1 .field-content span {
   font-size: 10px;
+}
+.node-form .field-name-field-image {
+	float: none;
+	margin: 0;
+	padding: 0;
 }
