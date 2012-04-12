@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Occupy Views feature.
+ */
+
+include_once 'occupy_views.features.inc';

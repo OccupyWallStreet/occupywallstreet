@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Occupy Misc feature.
+ */
+
+include_once 'occupy_misc.features.inc';

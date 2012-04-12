@@ -14,7 +14,7 @@ function occupy_contexts_context_default_contexts() {
   $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
   $context->api_version = 3;
   $context->name = 'contact_page';
-  $context->description = 'Context for applying contact page delta & blocks';
+  $context->description = 'Context for the Contact Page';
   $context->tag = 'Contact Page';
   $context->conditions = array(
     'path' => array(
@@ -26,21 +26,33 @@ function occupy_contexts_context_default_contexts() {
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
+        'views-ows_locations_map-block' => array(
+          'module' => 'views',
+          'delta' => 'ows_locations_map-block',
+          'region' => 'content',
+          'weight' => '-10',
+        ),
+        'views-ows_locations_map-block_1' => array(
+          'module' => 'views',
+          'delta' => 'ows_locations_map-block_1',
+          'region' => 'sidebar_second',
+          'weight' => '-10',
+        ),
         'block-30' => array(
           'module' => 'block',
           'delta' => 30,
           'region' => 'sidebar_second',
-          'weight' => '-10',
+          'weight' => '-9',
         ),
         'block-31' => array(
           'module' => 'block',
           'delta' => 31,
           'region' => 'sidebar_second',
-          'weight' => '-9',
+          'weight' => '-8',
         ),
-        'block-26' => array(
+        'block-25' => array(
           'module' => 'block',
-          'delta' => 26,
+          'delta' => 25,
           'region' => 'postscript_first',
           'weight' => '-10',
         ),
@@ -67,7 +79,7 @@ function occupy_contexts_context_default_contexts() {
   // Translatables
   // Included for use with string extractors like potx.
   t('Contact Page');
-  t('Context for applying contact page delta & blocks');
+  t('Context for the Contact Page');
   $export['contact_page'] = $context;
 
   $context = new stdClass();
@@ -79,7 +91,7 @@ function occupy_contexts_context_default_contexts() {
   $context->conditions = array(
     'path' => array(
       'values' => array(
-        'content/contribute' => 'content/contribute',
+        'contribute' => 'contribute',
       ),
     ),
   );
@@ -253,27 +265,27 @@ function occupy_contexts_context_default_contexts() {
           'region' => 'content',
           'weight' => '-10',
         ),
+        'block-26' => array(
+          'module' => 'block',
+          'delta' => 26,
+          'region' => 'sidebar_second',
+          'weight' => '-10',
+        ),
         'block-27' => array(
           'module' => 'block',
           'delta' => 27,
           'region' => 'sidebar_second',
-          'weight' => '-10',
+          'weight' => '-9',
         ),
         'block-28' => array(
           'module' => 'block',
           'delta' => 28,
           'region' => 'sidebar_second',
-          'weight' => '-9',
+          'weight' => '-8',
         ),
         'block-29' => array(
           'module' => 'block',
           'delta' => 29,
-          'region' => 'sidebar_second',
-          'weight' => '-8',
-        ),
-        'block-25' => array(
-          'module' => 'block',
-          'delta' => 25,
           'region' => 'preface_first',
           'weight' => '-10',
         ),
