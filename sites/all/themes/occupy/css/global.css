@@ -1,6 +1,6 @@
-/* This file will hold the main styles for your website. */
-
 /*-------------------"OCCUPY" THEME BASED ON OMEGA, BUILT BY Joel Moore (banghouse)----------------*/
+/*---------------------------From Designs by Thiago de Mello Bueno---------------------------------*/
+
  
 /*--------------------------------------------TYPOGRAPHY-------------------------------------------*/
 
@@ -64,7 +64,7 @@ h1.site-name, h2.site-name {
     font-weight: normal;
     letter-spacing: 1px;
 }
-/*-------------------------------------------------MAIN MENU-----------------------------------------*/
+/*---------------------------------------------MAIN MENU-----------------------------------------*/
 li.expanded, li.collapsed, li.leaf {
 	padding: 0;
 	margin: 0;
@@ -115,11 +115,11 @@ ul li.leaf {
 	width: 100%;
 	color: #3A3A3A;
 }
-/*---------------------------------------------NEWSLETTER FORM---------------------------------*/
+/*-----------------------------------------NEWSLETTER FORM------------------------------------*/
 .block-15 {
 	float: left;
 	width: 85%;
-	margin: 20px 0 10px;
+	margin: 0;
 }
 .newsletter-wrapper {
 	float: left;
@@ -201,11 +201,11 @@ ul li.leaf {
 	width: 45%;
 }
 
-/*-----------------------------------------------SOCIAL ICONS---------------------------------------*/
+/*------------------------------------------SOCIAL ICONS---------------------------------------*/
 .facebook-icon {
 	padding: 0 10px 0 0;
 }
-/*-----------------------------------------------ANNOUNCEMENTS----------------------------------*/
+/*------------------------------------------ANNOUNCEMENTS--------------------------------------*/
 #block-block-12 {
 	float: left;
 	margin: 20px 0 0 0px;
@@ -252,8 +252,8 @@ ul li.leaf {
   font-family: 'LeagueGothicRegular';
   margin: 0;
 }
-/*-----------------------------------FEATURED SECTION--------------------------------------*/
-/*---------------------------------------Slideshow-----------------------------------------*/
+/*--------------------------------------FEATURED SECTION--------------------------------------*/
+/*------------------------------------------Slideshow-----------------------------------------*/
 
 .views-slideshow-cycle-main-frame-row-item {
 	position: relative;
@@ -389,12 +389,12 @@ ul.quicktabs-tabs li {
 /*#views_slideshow_cycle_main_nodequeue_1-block {
 	position: relative;
 }*/
-/*--------------------------------------FEED BLOCK------------------------------------*/
+/*------------------------------------------FEED BLOCK---------------------------------------*/
 .front .front-quicktab-feed-region {
 	min-height: 450px;
 }
-/*----------------------------------------CONTENT--------------------------------------*/
-/*----------------------------------STORIES BLOCK OF 8---------------------------------*/
+/*--------------------------------------------CONTENT----------------------------------------*/
+/*---------------------------------------STORIES BLOCK OF 8----------------------------------*/
 #storiestitle {
 	text-transform: uppercase;
 	letter-spacing: 1px;
@@ -529,6 +529,18 @@ ul.quicktabs-tabs li {
 	font-size: 0;
 	margin: 10px 0;
 }
+.views-field-field-tags {
+	background-color: lightgray;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+	-moz-border-radius: 3px;
+	padding: 5px;
+	font-size: 14px;
+	margin: 2px 4px 2px 0;
+	float: left;
+	font-size: 14px;
+	color: gray;
+}
 /*-------------------------------------------------NEWS-----------------------------------------------*/
 .front-news-view-title {
 	font-family: 'LeagueGothicRegular';
@@ -567,7 +579,7 @@ ul.quicktabs-tabs li {
 	padding-top: 10px;
 	font-weight: normal;
 }
-/*-----------------------------------------READ PAGE-----------------------------*/
+/*---------------------------------------------------READ PAGE----------------------------------------*/
 #block-views-nodequeue-3-block .block-title {
 	border-bottom: 1px solid;
 	color: black;
@@ -631,8 +643,8 @@ read
 	text-transform: uppercase;
 	text-decoration: none;
 }
-/*-----------------------------------END READ PAGE---------------------------*/
-/*---------------------------------BEGIN LEARN PAGE--------------------------*/
+/*------------------------------------------END READ PAGE------------------------------------*/
+/*----------------------------------------BEGIN LEARN PAGE-----------------------------------*/
 .view-ga-consense-docs .views-field-title a {
 	color: #000;
 	text-decoration: none;
@@ -738,8 +750,8 @@ ul.quicktabs-tabs.quicktabs-style-arrows {
 	font-size: 13px;
 	margin: 0 0 0 40px;
 }
-/*----------------------------------BEGIN CONTRIBUTE PAGE-----------------------------*/
-/*----------------------------------BLOCK TITLES(Top Row)-----------------------------*/
+/*----------------------------------------BEGIN CONTRIBUTE PAGE------------------------------------*/
+/*----------------------------------------BLOCK TITLES(Top Row)------------------------------------*/
 .custom-title-first {
 	font-size: 35px;
 	margin: 0;
@@ -820,7 +832,7 @@ ul.quicktabs-tabs.quicktabs-style-arrows {
 	float: right;
 	margin: 0 0 10px 0;
 }
-/*----------------------------------------EVENTS BLOCK------------------------------------*/
+/*-----------------------------------------------EVENTS BLOCK-----------------------------------------*/
 
 .view-ows-events {
 	/*padding: 15px*/;
@@ -855,7 +867,7 @@ ul.quicktabs-tabs.quicktabs-style-arrows {
 	float: left;
 	margin: 0px 0 0 10px;
 }
-/*----------------------------------BLOCKS (Bottom Row)-----------------------------------*/
+/*--------------------------------------------BLOCKS (Bottom Row)------------------------------------*/
 .block-16, 
 .block-17, 
 .block-18 {
@@ -892,8 +904,8 @@ padding: 5px 15px 0px 10px;
 	color: #F4922F;
 	padding: 0 5px 0 0;
 }
-/*-------------------------------END CONTRIBUTE PAGE-------------------------------*/
-/*--------------------------------BEGIN CONTACT PAGE-------------------------------*/
+/*------------------------------------------END CONTRIBUTE PAGE----------------------------------*/
+/*------------------------------------------BEGIN CONTACT PAGE-----------------------------------*/
 
 .contact-page-block-wrapper {
 	padding: 10px 20px;
@@ -1055,6 +1067,7 @@ color: #000;
 .block-ows-locations-map-block-1 .field-content span {
   font-size: 10px;
 }
+/*-----------------------------------------------NODE FORM (FIX)---------------------------------------*/
 .node-form .field-name-field-image {
 	float: none;
 	margin: 0;
