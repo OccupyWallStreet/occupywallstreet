@@ -13,6 +13,55 @@ function occupy_contexts_context_default_contexts() {
   $context = new stdClass();
   $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
   $context->api_version = 3;
+  $context->name = 'articles_events';
+  $context->description = 'Block placement on full nodes for stories and events';
+  $context->tag = 'Articles and Events';
+  $context->conditions = array(
+    'node' => array(
+      'values' => array(
+        'event' => 'event',
+        'story' => 'story',
+      ),
+      'options' => array(
+        'node_form' => '0',
+      ),
+    ),
+  );
+  $context->reactions = array(
+    'block' => array(
+      'blocks' => array(
+        'views-tags_block-block' => array(
+          'module' => 'views',
+          'delta' => 'tags_block-block',
+          'region' => 'sidebar_second',
+          'weight' => '-10',
+        ),
+        'block-33' => array(
+          'module' => 'block',
+          'delta' => 33,
+          'region' => 'sidebar_second',
+          'weight' => '-9',
+        ),
+        'block-34' => array(
+          'module' => 'block',
+          'delta' => 34,
+          'region' => 'sidebar_second',
+          'weight' => '-8',
+        ),
+      ),
+    ),
+  );
+  $context->condition_mode = 0;
+
+  // Translatables
+  // Included for use with string extractors like potx.
+  t('Articles and Events');
+  t('Block placement on full nodes for stories and events');
+  $export['articles_events'] = $context;
+
+  $context = new stdClass();
+  $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
+  $context->api_version = 3;
   $context->name = 'contact_page';
   $context->description = 'Context for the Contact Page';
   $context->tag = 'Contact Page';
@@ -36,19 +85,19 @@ function occupy_contexts_context_default_contexts() {
           'module' => 'views',
           'delta' => 'ows_locations_map-block_1',
           'region' => 'sidebar_second',
-          'weight' => '-45',
+          'weight' => '-10',
         ),
         'block-30' => array(
           'module' => 'block',
           'delta' => 30,
           'region' => 'sidebar_second',
-          'weight' => '-44',
+          'weight' => '-9',
         ),
         'block-31' => array(
           'module' => 'block',
           'delta' => 31,
           'region' => 'sidebar_second',
-          'weight' => '-43',
+          'weight' => '-8',
         ),
         'block-25' => array(
           'module' => 'block',
