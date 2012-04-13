@@ -122,7 +122,7 @@ function occupy_content_types_field_default_fields() {
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => '4',
+          'weight' => '3',
         ),
         'teaser' => array(
           'label' => 'hidden',
@@ -177,16 +177,10 @@ function occupy_content_types_field_default_fields() {
       'description' => '',
       'display' => array(
         'default' => array(
-          'label' => 'above',
-          'module' => 'addressfield',
-          'settings' => array(
-            'format_handlers' => array(
-              0 => 'address',
-            ),
-            'use_widget_handlers' => 1,
-          ),
-          'type' => 'addressfield_default',
-          'weight' => '8',
+          'label' => 'hidden',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '5',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -255,11 +249,11 @@ function occupy_content_types_field_default_fields() {
       'description' => '',
       'display' => array(
         'default' => array(
-          'label' => 'above',
+          'label' => 'hidden',
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => '5',
+          'weight' => '0',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -408,10 +402,9 @@ function occupy_content_types_field_default_fields() {
       'display' => array(
         'default' => array(
           'label' => 'above',
-          'module' => 'list',
           'settings' => array(),
-          'type' => 'list_default',
-          'weight' => '7',
+          'type' => 'hidden',
+          'weight' => '6',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -462,28 +455,9 @@ function occupy_content_types_field_default_fields() {
       'display' => array(
         'default' => array(
           'label' => 'above',
-          'module' => 'geofield_map',
-          'settings' => array(
-            'geofield_map_baselayers_hybrid' => 1,
-            'geofield_map_baselayers_map' => 1,
-            'geofield_map_baselayers_physical' => 0,
-            'geofield_map_baselayers_satellite' => 1,
-            'geofield_map_controltype' => 'large',
-            'geofield_map_draggable' => 1,
-            'geofield_map_height' => '500px',
-            'geofield_map_maptype' => 'hybrid',
-            'geofield_map_mtc' => 'standard',
-            'geofield_map_overview' => 0,
-            'geofield_map_overview_opened' => 0,
-            'geofield_map_pancontrol' => 0,
-            'geofield_map_scale' => 0,
-            'geofield_map_scrollwheel' => 0,
-            'geofield_map_streetview_show' => 0,
-            'geofield_map_width' => '100%',
-            'geofield_map_zoom' => '14',
-          ),
-          'type' => 'geofield_map_map',
-          'weight' => '9',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '4',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -553,7 +527,7 @@ function occupy_content_types_field_default_fields() {
       'description' => '',
       'display' => array(
         'default' => array(
-          'label' => 'above',
+          'label' => 'hidden',
           'module' => 'image',
           'settings' => array(
             'image_link' => '',
@@ -646,10 +620,9 @@ function occupy_content_types_field_default_fields() {
       'display' => array(
         'default' => array(
           'label' => 'above',
-          'module' => 'taxonomy',
           'settings' => array(),
-          'type' => 'taxonomy_term_reference_link',
-          'weight' => '6',
+          'type' => 'hidden',
+          'weight' => '7',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -716,10 +689,9 @@ function occupy_content_types_field_default_fields() {
       'display' => array(
         'default' => array(
           'label' => 'above',
-          'module' => 'taxonomy',
           'settings' => array(),
-          'type' => 'taxonomy_term_reference_link',
-          'weight' => '0',
+          'type' => 'hidden',
+          'weight' => '8',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -1133,6 +1105,7 @@ function occupy_content_types_field_default_fields() {
     ),
     'field_instance' => array(
       'bundle' => 'occupy_location',
+      'default_value' => NULL,
       'deleted' => '0',
       'description' => '',
       'display' => array(
@@ -1167,13 +1140,13 @@ function occupy_content_types_field_default_fields() {
       ),
       'widget' => array(
         'active' => 1,
-        'module' => 'geocoder',
+        'module' => 'geofield',
         'settings' => array(
           'delta_handling' => 'default',
           'geocoder_field' => 'field_address',
           'geocoder_handler' => 'google',
         ),
-        'type' => 'geocoder',
+        'type' => 'geofield_wkt',
         'weight' => '2',
       ),
     ),
@@ -1358,7 +1331,7 @@ function occupy_content_types_field_default_fields() {
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => '3',
+          'weight' => '1',
         ),
         'teaser' => array(
           'label' => 'hidden',
@@ -1427,10 +1400,9 @@ function occupy_content_types_field_default_fields() {
       'display' => array(
         'default' => array(
           'label' => 'above',
-          'module' => 'text',
           'settings' => array(),
-          'type' => 'text_default',
-          'weight' => 5,
+          'type' => 'hidden',
+          'weight' => '2',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -1496,10 +1468,9 @@ function occupy_content_types_field_default_fields() {
       'display' => array(
         'default' => array(
           'label' => 'above',
-          'module' => 'list',
           'settings' => array(),
-          'type' => 'list_default',
-          'weight' => 8,
+          'type' => 'hidden',
+          'weight' => '4',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -1569,7 +1540,7 @@ function occupy_content_types_field_default_fields() {
             'image_style' => 'large',
           ),
           'type' => 'image',
-          'weight' => '2',
+          'weight' => '0',
         ),
         'teaser' => array(
           'label' => 'hidden',
@@ -1655,10 +1626,9 @@ function occupy_content_types_field_default_fields() {
       'display' => array(
         'default' => array(
           'label' => 'inline',
-          'module' => 'text',
           'settings' => array(),
-          'type' => 'text_default',
-          'weight' => '1',
+          'type' => 'hidden',
+          'weight' => '5',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -1728,10 +1698,9 @@ function occupy_content_types_field_default_fields() {
       'display' => array(
         'default' => array(
           'label' => 'above',
-          'module' => 'taxonomy',
           'settings' => array(),
-          'type' => 'taxonomy_term_reference_link',
-          'weight' => 7,
+          'type' => 'hidden',
+          'weight' => '3',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -1798,10 +1767,9 @@ function occupy_content_types_field_default_fields() {
       'display' => array(
         'default' => array(
           'label' => 'inline',
-          'module' => 'taxonomy',
           'settings' => array(),
-          'type' => 'taxonomy_term_reference_link',
-          'weight' => '0',
+          'type' => 'hidden',
+          'weight' => '6',
         ),
         'teaser' => array(
           'label' => 'above',
