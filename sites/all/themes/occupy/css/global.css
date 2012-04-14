@@ -228,9 +228,9 @@ ul li.leaf {
 	float: left;
 	font-size: 18px;
 	font-weight: normal;
-	letter-spacing: 1px;
+	letter-spacing: 1.5px;
 	margin: 0;
-	padding: 10px 0 0 15px;
+	padding: 8px 0 0 15px;
 	text-transform: uppercase;
 	line-height: 1.2em;
 }
