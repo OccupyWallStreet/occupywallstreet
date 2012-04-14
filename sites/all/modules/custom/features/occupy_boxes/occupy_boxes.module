@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Occupy Boxes feature.
+ */
+
+include_once 'occupy_boxes.features.inc';

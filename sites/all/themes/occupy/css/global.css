@@ -60,9 +60,9 @@ h1.site-name, h2.site-name {
 }
 .site-slogan, .block-menu {
     color: #FECD48;
-    font-size: 1.55em;
+    font-size: 1.7em;
     font-weight: normal;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
 }
 /*---------------------------------------------MAIN MENU-----------------------------------------*/
 li.expanded, li.collapsed, li.leaf {
@@ -94,17 +94,17 @@ ul li.leaf {
     color: #FECD48;
     font-family: 'LeagueGothicRegular';
     font-weight: normal;
-    letter-spacing: 3px;
+    letter-spacing: 1px;
     text-decoration: none;
     text-transform: uppercase;
     float: left;
-	padding: 0 20px 0 9px;
+	padding: 0 20px 0 10px;
 }
 #block-system-main-menu li a.active,
 #block-system-main-menu li a:hover {
     color: #FFF;
     font-weight: normal;
-    letter-spacing: 3px;
+    letter-spacing: 1px;
     text-decoration: none;
     text-transform: uppercase;
 }
@@ -246,13 +246,14 @@ ul li.leaf {
 #block-views-ows-announcements-block .views-row-last {
     float: left;
     margin: 0;
-    padding: 0 0 0 25px;
+    padding: 0 0 0 20px;
     width: 40%;
     min-height: 75px;
 	max-height: 75px;
 }
 .announcements-view {
 	font-family: 'LeagueGothicRegular';
+	padding: 0 10px 0 0;
 }
 .announcements-view p {
   font-family: 'LeagueGothicRegular';
