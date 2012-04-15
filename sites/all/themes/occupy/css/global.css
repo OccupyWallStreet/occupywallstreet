@@ -875,11 +875,11 @@ ul.quicktabs-tabs.quicktabs-style-arrows {
 	margin: 0px 0 0 10px;
 }
 /*--------------------------------------------BLOCKS (Bottom Row)------------------------------------*/
-.block-16, 
-.block-17, 
-.block-18 {
-background: #EDEDED;
-padding: 5px 15px 0px 10px;
+.block-16, .block-17, .block-18 {
+	background: #EDEDED;
+	padding: 5px 15px 0px 10px;
+	min-height: 415px;
+	max-height: 415px;
 }
 .custom-block-16 {
 	font-size: 35px;
