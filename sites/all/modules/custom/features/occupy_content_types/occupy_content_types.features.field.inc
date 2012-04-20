@@ -1140,13 +1140,25 @@ function occupy_content_types_field_default_fields() {
       ),
       'widget' => array(
         'active' => 1,
-        'module' => 'geofield',
+        'module' => 'geocoder',
         'settings' => array(
           'delta_handling' => 'default',
           'geocoder_field' => 'field_address',
           'geocoder_handler' => 'google',
+          'handler_settings' => array(
+            'google' => array(
+              'all_results' => 0,
+              'geometry_type' => 'point',
+              'reject_results' => array(
+                'APPROXIMATE' => 0,
+                'GEOMETRIC_CENTER' => 0,
+                'RANGE_INTERPOLATED' => 0,
+                'ROOFTOP' => 0,
+              ),
+            ),
+          ),
         ),
-        'type' => 'geofield_wkt',
+        'type' => 'geocoder',
         'weight' => '2',
       ),
     ),
@@ -1576,8 +1588,8 @@ function occupy_content_types_field_default_fields() {
             'public' => 'public',
           ),
           'allowed_types' => array(
-            0 => 0,
             'audio' => 0,
+            0 => 0,
             'default' => 0,
             'image' => 'image',
             'video' => 0,
