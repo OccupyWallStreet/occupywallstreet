@@ -24,16 +24,20 @@ h4 {
 h5 {
 	font-size: 14px;
 	font-family: 'PTSansRegular';
-    font-weight: bold;
+   font-weight: bold;
 }
-/*h6 {
-	font-size: 12px;
-	font-family: 'PTSansCaps';
-    font-weight: bold;
-}*/
+h6 {
+	font-size: 11px;
+	font-weight: normal;
+}
 p, div {
     font-family: 'PTSansRegular';
     font-weight: normal;
+}
+
+#block-delta-blocks-site-slogan{
+	width: 100%;
+	white-space: nowrap;
 }
 /*----------------------------------------------HEADER---------------------------------------------*/
 /*---------------------------------------------BRANDING--------------------------------------------*/
@@ -64,6 +68,9 @@ h1.site-name, h2.site-name {
     font-weight: normal;
     letter-spacing: 2px;
 }
+.site-slogan{
+	font-size: 1.5em;
+}
 /*---------------------------------------------MAIN MENU-----------------------------------------*/
 li.expanded, li.collapsed, li.leaf {
 	padding: 0;
@@ -82,7 +89,7 @@ ul li.leaf {
 #block-system-main-menu ul.menu {
     border: medium none;
     list-style: none outside none;
-    padding: 50px 0 0 0px;
+    padding: 47px 0 0 0px;
     text-align: left;
 }
 /*#block-system-main-menu .active-trail {
@@ -119,7 +126,7 @@ ul li.leaf {
 .block-15 {
 	float: left;
 	width: 85%;
-	margin: 20px 0 0;
+	margin: 0 0 0;
 }
 /*.block-32 {
 	float: left;
@@ -127,23 +134,27 @@ ul li.leaf {
 	padding: 0px;
 	width: 100%;
 }*/
+
 .newsletter-wrapper {
 	float: left;
 	width: 100%;
 }
+
 .newsletter-wrapper p {
 	margin: 0;
 	padding: 0;
 }
+
 .newsletter-text {
 	float: left;
-	margin: 0 10px 0 15px;
+	margin: 0 10px 0 0;
 	font-family: 'LeagueGothicRegular';
-	font-size: 20px;
+	font-size: 21px;
 	letter-spacing: 1px;
 	text-transform: uppercase;
 	font-weight: normal;
 }
+
 /*.newsletter-email {
 	float: left;
 	margin: 0 0 0 10px;
@@ -215,7 +226,6 @@ ul li.leaf {
 #block-block-12 {
 	float: left;
 	margin: 20px 0 0 0px;
-	width: 10%;
 }
 #block-views-ows-announcements-block {
 	float: left;
@@ -230,7 +240,7 @@ ul li.leaf {
 	font-weight: normal;
 	letter-spacing: 1.5px;
 	margin: 0;
-	padding: 8px 0 0 15px;
+	padding: 8px 0 0 0;
 	text-transform: uppercase;
 	line-height: 1.2em;
 }
@@ -239,18 +249,21 @@ ul li.leaf {
 	float: left;
 	margin: 0;
 	padding: 0;
-	width: 50%;
+	width: 47%;
 	min-height: 65px;
 	max-height: 65px;
 }
+
 #block-views-ows-announcements-block .views-row-last {
-    float: left;
-    margin: 0;
-    padding: 0 0 0 20px;
-    width: 40%;
-    min-height: 75px;
+  float: left;
+  margin: 0;
+  padding: 0 0 0 3%;
+  width: 47%;
+	line-height: 1.125;
+  min-height: 75px;
 	max-height: 75px;
 }
+
 .announcements-view {
 	font-family: 'LeagueGothicRegular';
 	padding: 0 10px 0 0;
@@ -416,6 +429,7 @@ ul.quicktabs-tabs li {
 }
 #page-title {
     letter-spacing: 1px;
+		text-transform: uppercase;
 }
 .stories-block-row {
     display: block;
@@ -846,7 +860,7 @@ ul.quicktabs-tabs.quicktabs-style-arrows {
 }
 .view-ows-events .view-content {
 	background: #EDEDED;
-	padding: 15px 15px 50px 10px;
+	padding: 15px 15px 50px 0;
 }
 .contribute-block-date-field {
 	float: left;
@@ -1006,9 +1020,9 @@ ul.quicktabs-tabs.quicktabs-style-arrows {
 }
 
 #section-footer {
-    background: url("/sites/all/themes/files/footer.png") no-repeat scroll center bottom transparent;
+    background: url("/sites/all/themes/files/footer.jpg") repeat-x scroll center bottom transparent;
     margin: 0;
-    padding: 0;
+    padding: 12px 0 0 0;
     width: 100%;
 }
 #section-footer p {
